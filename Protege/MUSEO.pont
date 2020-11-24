@@ -1,4 +1,4 @@
-; Tue Nov 24 12:29:44 CET 2020
+; Tue Nov 24 13:15:43 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -127,10 +127,6 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot NombreEst
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -146,6 +142,10 @@
 	(single-slot visita_pref
 		(type INSTANCE)
 ;+		(allowed-classes Preferencia)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Any
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -177,12 +177,12 @@
 		(allowed-values 1 2 3 4 5)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Largo
+;+		(comment "Los centímetros que tiene de largo un cuadro")
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Largo
-;+		(comment "Los centímetros que tiene de largo un cuadro")
+	(single-slot Any
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))

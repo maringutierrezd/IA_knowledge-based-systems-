@@ -328,14 +328,15 @@
 
 
 (definstances instances 
-; Tue Nov 24 12:29:44 CET 2020
+; Tue Nov 24 13:15:43 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
+
 ([MUSEO_Class0] of  Cuadro
 
 	(Alto 91)
-	(A%C3%B1o 1983)
+	(Any 1983)
 	(Complejidad 2)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
@@ -370,4 +371,16 @@
 
 	(NombreTem "Retrato")
 	(tem_cuad [MUSEO_Class0]))
+
+)
+
+(defrule MAIN::inicio
+    (initial-fact)
+    =>
+    (printout t"----------------------------------------------------------" crlf)
+      (printout t"          Personalizacion de visitas a un museo           " crlf)
+    (printout t"----------------------------------------------------------" crlf)
+      (printout t crlf)      
+    (printout t"¡Bienvenido! A continuacion se le formularan una serie de preguntas para poder recomendarle una visita adecuada a sus preferencias." crlf)
+    (printout t crlf)
 )

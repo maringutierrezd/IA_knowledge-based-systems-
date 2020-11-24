@@ -1,4 +1,4 @@
-; Tue Nov 24 12:29:44 CET 2020
+; Tue Nov 24 15:52:12 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -20,14 +20,14 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[MUSEO_ProjectKB_Class10127]
-		[MUSEO_ProjectKB_Class10128]
-		[MUSEO_ProjectKB_Class10129]
-		[MUSEO_ProjectKB_Class10130]
-		[MUSEO_ProjectKB_Class10131]
-		[MUSEO_ProjectKB_Class10132]
-		[MUSEO_ProjectKB_Class10133]
-		[MUSEO_ProjectKB_Class10134]))
+		[MUSEO_ProjectKB_Class91]
+		[MUSEO_ProjectKB_Class92]
+		[MUSEO_ProjectKB_Class93]
+		[MUSEO_ProjectKB_Class94]
+		[MUSEO_ProjectKB_Class95]
+		[MUSEO_ProjectKB_Class96]
+		[MUSEO_ProjectKB_Class97]
+		[MUSEO_ProjectKB_Class98]))
 
 ([CLSES_TAB] of  Widget
 
@@ -71,6 +71,9 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
+([KB_382224_Class3] of  Map
+)
+
 ([KB_443340_Class0] of  String
 
 	(name "factory_class_name")
@@ -79,9 +82,9 @@
 ([KB_443340_Class1] of  Map
 
 	(entries
-		[MUSEO_ProjectKB_Class10135]
-		[MUSEO_ProjectKB_Class10136]
-		[MUSEO_ProjectKB_Class10137]))
+		[MUSEO_ProjectKB_Class99]
+		[MUSEO_ProjectKB_Class100]
+		[MUSEO_ProjectKB_Class101]))
 
 ([KB_443340_Class10] of  Property_List
 )
@@ -508,111 +511,19 @@
 
 	(properties [MUSEO_ProjectKB_Class110]))
 
-([KB_814463_Class3] of  Map
-)
-
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
 	(properties [VERTICAL_STRETCHER]))
 
-([MUSEO_ProjectKB_Class10017] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "Ancho")
-	(property_list [MUSEO_ProjectKB_Class10018])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 0)
-	(y 120))
-
-([MUSEO_ProjectKB_Class10018] of  Property_List
-)
-
-([MUSEO_ProjectKB_Class10025] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "Alto")
-	(property_list [MUSEO_ProjectKB_Class10026])
-	(widget_class_name "edu.stanford.smi.protege.widget.ClsFieldWidget")
-	(width 200)
-	(x 200)
-	(y 60))
-
-([MUSEO_ProjectKB_Class10026] of  Property_List
-)
-
-([MUSEO_ProjectKB_Class10037] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "Alto")
-	(property_list [MUSEO_ProjectKB_Class10038])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 0)
-	(y 180))
-
-([MUSEO_ProjectKB_Class10038] of  Property_List
-)
-
-([MUSEO_ProjectKB_Class10127] of  String
-
-	(name "Estilo")
-	(string_value "NombreEst"))
-
-([MUSEO_ProjectKB_Class10128] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([MUSEO_ProjectKB_Class10129] of  String
-
-	(name "Pintor")
-	(string_value "NombrePintor"))
-
-([MUSEO_ProjectKB_Class10130] of  String
-
-	(name "Cuadro")
-	(string_value "Nombre"))
-
-([MUSEO_ProjectKB_Class10131] of  String
-
-	(name "Epoca")
-	(string_value "NombreEp"))
-
-([MUSEO_ProjectKB_Class10132] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([MUSEO_ProjectKB_Class10133] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([MUSEO_ProjectKB_Class10134] of  String
-
-	(name "Tematica")
-	(string_value "NombreTem"))
-
-([MUSEO_ProjectKB_Class10135] of  Map_Entry
-
-	(key "add_name_on_instance_form")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([MUSEO_ProjectKB_Class10136] of  Map_Entry
+([MUSEO_ProjectKB_Class100] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([MUSEO_ProjectKB_Class10137] of  Map_Entry
+([MUSEO_ProjectKB_Class101] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
@@ -622,6 +533,53 @@
 ([MUSEO_ProjectKB_Class110] of  String
 
 	(name "SearchTab_Query"))
+
+([MUSEO_ProjectKB_Class91] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([MUSEO_ProjectKB_Class92] of  String
+
+	(name "Estilo")
+	(string_value "NombreEst"))
+
+([MUSEO_ProjectKB_Class93] of  String
+
+	(name "Pintor")
+	(string_value "NombrePintor"))
+
+([MUSEO_ProjectKB_Class94] of  String
+
+	(name "Cuadro")
+	(string_value "Nombre"))
+
+([MUSEO_ProjectKB_Class95] of  String
+
+	(name "Epoca")
+	(string_value "NombreEp"))
+
+([MUSEO_ProjectKB_Class96] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([MUSEO_ProjectKB_Class97] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([MUSEO_ProjectKB_Class98] of  String
+
+	(name "Tematica")
+	(string_value "NombreTem"))
+
+([MUSEO_ProjectKB_Class99] of  Map_Entry
+
+	(key "add_name_on_instance_form")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
 
 ([option_instance] of  Options
 
@@ -702,8 +660,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
+		[STANDARD_SLOT_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

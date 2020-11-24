@@ -1,0 +1,43 @@
+; Tue Nov 24 12:29:44 CET 2020
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
+([MUSEO_Class0] of  Cuadro
+
+	(Alto 91)
+	(A%C3%B1o 1983)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class6])
+	(cuad_pint [MUSEO_Class2])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 74)
+	(Nombre "El Grito")
+	(Relevancia 5)
+	(Sala 1))
+
+([MUSEO_Class2] of  Pintor
+
+	(Nacionalidad "Noruega")
+	(NombrePintor "Edvard Munch")
+	(pint_cuad [MUSEO_Class0])
+	(pint_ep [MUSEO_Class4])
+	(pint_est [MUSEO_Class6]))
+
+([MUSEO_Class4] of  Epoca
+
+	(ep_cuad [MUSEO_Class0])
+	(ep_pint [MUSEO_Class2])
+	(NombreEp "Expresionismo"))
+
+([MUSEO_Class6] of  Estilo
+
+	(est_cuad [MUSEO_Class0])
+	(est_pint [MUSEO_Class2])
+	(NombreEst "Expresionista"))
+
+([MUSEO_Class8] of  Tematica
+
+	(NombreTem "Retrato")
+	(tem_cuad [MUSEO_Class0]))

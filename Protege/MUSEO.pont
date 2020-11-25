@@ -1,4 +1,4 @@
-; Tue Nov 24 13:15:43 CET 2020
+; Wed Nov 25 09:45:52 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -22,11 +22,6 @@
 	(multislot pref_ep
 		(type INSTANCE)
 ;+		(allowed-classes Epoca)
-		(create-accessor read-write))
-	(single-slot Nombre
-;+		(comment "Título del cuadro")
-		(type STRING)
-;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot cuad_ep
 		(type INSTANCE)
@@ -61,13 +56,11 @@
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Conocimiento
-		(type SYMBOL)
-		(allowed-values 1 2 3 4 5)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Complejidad
-		(type SYMBOL)
-		(allowed-values 1 2 3 4 5)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Largo
@@ -81,8 +74,7 @@
 		(create-accessor read-write))
 	(single-slot Relevancia
 ;+		(comment "Del 1 al 5, siendo 1 muy poco relevante y 5 muy relevante.")
-		(type SYMBOL)
-		(allowed-values 1 2 3 4 5)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Alto
@@ -102,6 +94,11 @@
 	(multislot pint_ep
 		(type INSTANCE)
 ;+		(allowed-classes Epoca)
+		(create-accessor read-write))
+	(single-slot NombreCuadro
+;+		(comment "Título del cuadro")
+		(type STRING)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot ep_cuad
 		(type INSTANCE)
@@ -127,6 +124,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
+	(single-slot A%C3%B1o
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot NombreEst
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -144,10 +145,6 @@
 ;+		(allowed-classes Preferencia)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Any
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Sala
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -161,11 +158,6 @@
 ;+		(allowed-classes Estilo)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Nombre
-;+		(comment "Título del cuadro")
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot cuad_pint
 ;+		(comment "Pintor asociado al cuadro")
 		(type INSTANCE)
@@ -173,8 +165,11 @@
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Complejidad
-		(type SYMBOL)
-		(allowed-values 1 2 3 4 5)
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot A%C3%B1o
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Largo
@@ -182,14 +177,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Any
-		(type INTEGER)
-;+		(cardinality 0 1)
+	(single-slot NombreCuadro
+;+		(comment "Título del cuadro")
+		(type STRING)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Relevancia
 ;+		(comment "Del 1 al 5, siendo 1 muy poco relevante y 5 muy relevante.")
-		(type SYMBOL)
-		(allowed-values 1 2 3 4 5)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Alto
@@ -288,8 +283,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Conocimiento
-		(type SYMBOL)
-		(allowed-values 1 2 3 4 5)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Num_horas

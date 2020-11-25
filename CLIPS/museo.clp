@@ -4,7 +4,7 @@
 ;+ (build "Build 663")
 
 
-(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information" ;;;;;;;;;;;;;;;;;;;; AQUI PONEMOS EL .pont
 	(is-a USER)
 	(role abstract)
 	(single-slot NombrePintor
@@ -327,7 +327,9 @@
 		(create-accessor read-write)))
 
 
-(definstances instances 
+
+
+(definstances instances ;;;;;;;;;;;;;;;;;;;; AQUI PONEMOS EL .pins
 ; Tue Nov 24 13:15:43 CET 2020
 ; 
 ;+ (version "3.5")
@@ -374,13 +376,3 @@
 
 )
 
-(defrule MAIN::inicio
-    (initial-fact)
-    =>
-    (printout t"----------------------------------------------------------" crlf)
-      (printout t"          Personalizacion de visitas a un museo           " crlf)
-    (printout t"----------------------------------------------------------" crlf)
-      (printout t crlf)      
-    (printout t"¡Bienvenido! A continuacion se le formularan una serie de preguntas para poder recomendarle una visita adecuada a sus preferencias." crlf)
-    (printout t crlf)
-)

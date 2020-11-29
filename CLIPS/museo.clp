@@ -1041,11 +1041,10 @@
 	(printout t "Cuantas horas durara cada visita?" crlf)
 	(bind ?h (read))
 	(modify ?g (horas ?h))
-
-	(focus MAIN)
 )
 
 (defrule recopilacion-datos::cuanto-tiempo
+	( declare (salience -1))
 	?h <- (visita (horas ?horas))
     ?d <- (visita (dias ?dias))
 	?t <- (visita (tiempoTotal ?tiempo))

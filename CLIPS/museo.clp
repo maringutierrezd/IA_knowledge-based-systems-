@@ -1018,14 +1018,8 @@
 )
 
 (defrule recopilacion-datos::hay-ninos 
-	(not (visita))
-	=>
-	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
-	(bind ?x (read))
-	(assert (visita (ninos ?x)))
-
 	?g <- (visita (ninos ?nin))
-	(test (< ?tam 0))
+	(test (< ?nin 0))
 	=>
 	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
 	(bind ?x (read))
@@ -1064,6 +1058,38 @@
 	(focus MAIN)
 )
 
+(defrule recopilacion-datos::getEpocasPref 
+	?e <- (visita)
+	=>
+	(printout t "Seleccione sus epocas preferidas: " crlf)
+	(bind $?lista-epocas (find-all-instances ((?inst Epoca)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-epocas)) do
+		(bind ?actual (nth$ ?i ?lista-epocas))
+		(bind ?nombre (send ?actual get-NombreEp))
+		(printout t ?i ". " ?nombre crlf) 
+	)
+
+	; CAMBIAR ALGO 
+	(bind ?resp (readline))
+    (bind ?numeros (str-explode ?resp))
+    (bind $?escogido (create$))
+    (progn$ (?var ?numeros) 
+        (if (and (integerp ?var)  (> ?var 0))
+            then 
+                (if (not (member$ ?var ?escogido))
+                    then (bind ?escogido (insert$ ?escogido (+ (length$ ?escogido) 1) ?var))
+                )
+        ) 
+    )
+	(bind $?respuesta (create$ ))
+	(loop-for-count (?i 1 (length$ ?escogido)) do
+		(bind ?curr-index (nth$ ?i ?escogido))
+		(bind ?curr-autor (nth$ ?curr-index ?lista-epocas))
+		(bind $?respuesta(insert$ $?respuesta (+ (length$ $?respuesta) 1) ?curr-autor))
+	)
+	(modify ?e (epocasPref $?respuesta))
+)
 
 
 

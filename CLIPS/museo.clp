@@ -989,10 +989,10 @@
 (deftemplate MAIN::visita
 	(slot tamano (type INTEGER) (default -1)) ;tamanyo del grupo
 	(slot conocimiento (type INTEGER)(default -1)) ;conocimiento
-	(slot edad (type INTEGER)(default -1)) ;edad general del grupo
+	;(slot edad (type INTEGER)(default -1)) ;edad general del grupo
     (slot dias (type INTEGER)(default -1)) ;nº dias en visitar el museo
-    (slot horasdia (type INTEGER)(default -1)) ;nº horas/dia
-    (slot tiempo (type INTEGER)(default -1)) ;total de tiempo
+    (slot horas (type INTEGER)(default -1)) ;nº horas/dia
+    (slot tiempoTotal (type INTEGER)(default -1)) ;total de tiempo
 )
 
 (defrule recopilacion-datos::tamano-grupo 
@@ -1011,12 +1011,30 @@
 	(printout t "Cuantos dias durara la visita?" crlf)
 	(bind ?a (read))
 	(modify ?g (dias ?a))
+)
+
+(defrule recopilacion-datos::cuantas-horas 
+	?g <- (visita (horas ?h))
+    (test (< ?h 0) )
+	=>
+	(printout t "Cuantas horas durara cada visita?" crlf)
+	(bind ?h (read))
+	(modify ?g (horas ?h))
 
 	(focus MAIN)
 )
 
+(defrule recopilacion-datos::cuantas-horas 
+	?h <- (visita (horas ?horas))
+    ?d <- (visita (dias ?dias))
+	?t <- (visita (tiempoTotal ?tiempo))
+	(test (< ?tiempo 0))
+	=>
+	(bind ?tiempo (* ?horas ?dias))
+	(modify ?t (tiempoTotal ?tiempo))
 
-
+	(focus MAIN)
+)
 
 
 

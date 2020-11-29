@@ -1005,11 +1005,12 @@
 )
 
 (defrule recopilacion-datos::conocimiento-grupo
-	(not (visita))
+	?g <- (visita (conocimiento ?conoc))
+	(test (< ?conoc 0))
 	=>
 	(printout t "Clasifique su conocimiento de Arte del 1 al 10" crlf)	; esto es provisional
 	(bind ?x (read))
-	(assert (visita (conocimiento ?x)))
+	(modify ?g (conocimiento ?x))
 )
 
 (defrule recopilacion-datos::hay-ninos 
@@ -1018,6 +1019,13 @@
 	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
 	(bind ?x (read))
 	(assert (visita (ninos ?x)))
+
+	?g <- (visita (ninos ?nin))
+	(test (< ?tam 0))
+	=>
+	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
+	(bind ?x (read))
+	(modify ?g (ninos ?x))
 )
 
 

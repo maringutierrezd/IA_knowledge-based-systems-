@@ -993,6 +993,10 @@
     (slot dias (type INTEGER)(default -1)) ;nº dias en visitar el museo
     (slot horas (type INTEGER)(default -1)) ;nº horas/dia
     (slot tiempoTotal (type INTEGER)(default -1)) ;total de tiempo
+	(multislot epocasPref (type INSTANCE)) 
+	(multislot estilosPref (type INSTANCE))
+	(multislot pintoresPref (type INSTANCE))
+	(multislot tematicaPref (type INSTANCE))
 )
 
 (defrule recopilacion-datos::tamano-grupo 
@@ -1024,7 +1028,7 @@
 	(focus MAIN)
 )
 
-(defrule recopilacion-datos::cuantas-horas 
+(defrule recopilacion-datos::cuanto-tiempo
 	?h <- (visita (horas ?horas))
     ?d <- (visita (dias ?dias))
 	?t <- (visita (tiempoTotal ?tiempo))

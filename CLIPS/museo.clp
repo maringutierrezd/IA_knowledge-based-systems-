@@ -979,6 +979,13 @@
 ; 	?respuesta
 ; )
 
+(defmodule MAIN (export ?ALL))
+
+(defmodule recopilacion-datos
+	(import MAIN ?ALL)
+	(export ?ALL)
+)
+
 (deftemplate MAIN::visita
 	(slot tamano (type INTEGER) (default -1)) ;tamanyo del grupo
 	(slot conocimiento (type INTEGER)(default -1)) ;conocimiento
@@ -988,14 +995,23 @@
     (slot tiempo (type INTEGER)(default -1)) ;total de tiempo
 )
 
+(defrule recopilacion-datos::tamano-grupo 
+	(not (visita))
+	=>
+	(printout t "Cual es el tamano del grupo? " crlf)
+	(bind ?x (read))
+	(assert (visita (tamano ?x)))
+)
 
-(defmodule recopilacion-datos)
 
 (defrule recopilacion-datos::cuantos-dias 
+	?g <- (visita (dias ?dias))
+    (test (< ?dias 0) )
 	=>
-	(printout t "Cuantos dias durara la visita" crlf)
+	(printout t "Cuantos dias durara la visita?" crlf)
 	(bind ?a (read))
-	(printout t "Genial, la visita durara " ?a  " dias " crlf)
+	(modify ?g (dias ?a))
+
 	(focus MAIN)
 )
 
@@ -1011,10 +1027,10 @@
 )
 
 (defrule MAIN::primera-regla 
-( declare (salience 10))
-=>	
-(printout t "Bienvenido a nuestro museo " crlf)
-(focus recopilacion-datos)
+	( declare (salience 10))
+	=>	
+	(printout t "Bienvenido a nuestro museo " crlf)
+	(focus recopilacion-datos)
 )
 
 

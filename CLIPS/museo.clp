@@ -989,6 +989,7 @@
 (deftemplate MAIN::visita
 	(slot tamano (type INTEGER) (default -1)) ;tamanyo del grupo
 	(slot conocimiento (type INTEGER)(default -1)) ;conocimiento
+	(slot ninos (type INTEGER) (default -1))
 	;(slot edad (type INTEGER)(default -1)) ;edad general del grupo
     (slot dias (type INTEGER)(default -1)) ;nº dias en visitar el museo
     (slot horas (type INTEGER)(default -1)) ;nº horas/dia
@@ -1005,6 +1006,22 @@
 	(printout t "Cual es el tamano del grupo? " crlf)
 	(bind ?x (read))
 	(assert (visita (tamano ?x)))
+)
+
+(defrule recopilacion-datos::conocimiento-grupo
+	(not (visita))
+	=>
+	(printout t "Clasifique su conocimiento de Arte del 1 al 10" crlf)	; esto es provisional
+	(bind ?x (read))
+	(assert (visita (conocimiento ?x)))
+)
+
+(defrule recopilacion-datos::hay-ninos 
+	(not (visita))
+	=>
+	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
+	(bind ?x (read))
+	(assert (visita (ninos ?x)))
 )
 
 

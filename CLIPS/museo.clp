@@ -994,6 +994,10 @@
     (slot dias (type INTEGER)(default -1)) ;nº dias en visitar el museo
     (slot horas (type INTEGER)(default -1)) ;nº horas/dia
     (slot tiempoTotal (type INTEGER)(default -1)) ;total de tiempo
+	(multislot epocasPref (type INSTANCE)) 
+	(multislot estilosPref (type INSTANCE))
+	(multislot pintoresPref (type INSTANCE))
+	(multislot tematicaPref (type INSTANCE))
 )
 
 (defrule recopilacion-datos::tamano-grupo 
@@ -1039,11 +1043,10 @@
 	(printout t "Cuantas horas durara cada visita?" crlf)
 	(bind ?h (read))
 	(modify ?g (horas ?h))
-
-	(focus MAIN)
 )
 
 (defrule recopilacion-datos::cuanto-tiempo
+	( declare (salience -1))
 	?h <- (visita (horas ?horas))
     ?d <- (visita (dias ?dias))
 	?t <- (visita (tiempoTotal ?tiempo))
@@ -1055,6 +1058,47 @@
 	(focus MAIN)
 )
 
+(deffacts recopilacion-datos::todo-ask 
+	(faltaPreguntarEpocas)
+	(faltaPreguntarEstilos)
+	(faltaPreguntarAutores)
+	(faltaPreguntarTematicas)
+)
+
+(defrule recopilacion-datos::getEpocasPref 
+	?e <- (visita)
+	?done <- (faltaPreguntarEpocas)
+	=>
+	(printout t "Seleccione sus epocas preferidas: " crlf)
+	(bind $?lista-epocas (find-all-instances ((?inst Epoca)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-epocas)) do
+		(bind ?actual (nth$ ?i ?lista-epocas))
+		(bind ?nombre (send ?actual get-NombreEp))
+		(printout t ?i ". " ?nombre crlf) 
+	)
+
+	; CAMBIAR ALGO 
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
+            then 
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
+                )
+        ) 
+    )
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
+		(bind ?curr-autor (nth$ ?curr-index ?lista-epocas))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-autor))
+	)
+	(modify ?e (epocasPref $?r))
+	(retract ?done)
+)
 
 
 

@@ -997,7 +997,7 @@
 	(multislot epocasPref (type INSTANCE)) 
 	(multislot estilosPref (type INSTANCE))
 	(multislot pintoresPref (type INSTANCE))
-	(multislot tematicaPref (type INSTANCE))
+	(multislot tematicasPref (type INSTANCE))
 )
 
 (defrule recopilacion-datos::tamano-grupo 
@@ -1061,7 +1061,7 @@
 (deffacts recopilacion-datos::todo-ask 
 	(faltaPreguntarEpocas)
 	(faltaPreguntarEstilos)
-	(faltaPreguntarAutores)
+	(faltaPreguntarPintores)
 	(faltaPreguntarTematicas)
 )
 
@@ -1078,7 +1078,6 @@
 		(printout t ?i ". " ?nombre crlf) 
 	)
 
-	; CAMBIAR ALGO 
 	(bind ?ans (readline))
     (bind ?num (str-explode ?ans))
     (bind $?chosen (create$))
@@ -1099,6 +1098,76 @@
 	(modify ?e (epocasPref $?r))
 	(retract ?done)
 )
+
+(defrule recopilacion-datos::getPintoresPref 
+	?e <- (visita)
+	?done <- (faltaPreguntarPintores)
+	=>
+	(printout t "Seleccione sus pintores preferidos: " crlf)
+	(bind $?lista-pintores (find-all-instances ((?inst Pintor)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-pintores)) do
+		(bind ?actual (nth$ ?i ?lista-pintores))
+		(bind ?nombre (send ?actual get-NombrePintor))
+		(printout t ?i ". " ?nombre crlf) 
+	)
+
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
+            then 
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
+                )
+        ) 
+    )
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
+		(bind ?curr-pintor (nth$ ?curr-index ?lista-pintores))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-pintor))
+	)
+	(modify ?e (pintoresPref $?r))
+	(retract ?done)
+)
+
+(defrule recopilacion-datos::getTematicasPref 
+	?e <- (visita)
+	?done <- (faltaPreguntarTematicas)
+	=>
+	(printout t "Seleccione sus tematicas preferidas: " crlf)
+	(bind $?lista-tematicas (find-all-instances ((?inst Tematica)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-tematicas)) do
+		(bind ?actual (nth$ ?i ?lista-tematicas))
+		(bind ?nombre (send ?actual get-NombreTem))
+		(printout t ?i ". " ?nombre crlf) 
+	)
+
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
+            then 
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
+                )
+        ) 
+    )
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
+		(bind ?curr-tematica (nth$ ?curr-index ?lista-tematicas))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-tematica))
+	)
+	(modify ?e (tematicasPref $?r))
+	(retract ?done)
+)
+
+
 
 
 

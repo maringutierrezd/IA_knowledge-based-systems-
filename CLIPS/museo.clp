@@ -968,16 +968,18 @@
 
 ; A PARTIR DE AQUI CÓDIGO NUESTRO
 
-;;; Funcion para hacer una pregunta numerica-univalor
-; (deffunction MAIN::pregunta-numerica (?pregunta ?rangini ?rangfi)
-; 	(format t "%s (De %d hasta %d) " ?pregunta ?rangini ?rangfi)
-; 	(bind ?respuesta (read))
-; 	(while (not(and(>= ?respuesta ?rangini)(<= ?respuesta ?rangfi))) do
-; 		(format t "%s (De %d hasta %d) " ?pregunta ?rangini ?rangfi)
-; 		(bind ?respuesta (read))
-; 	)
-; 	?respuesta
-; )
+
+(defclass Eleccion ;ESTO AUN NO LO UTILIZAMOS
+	(is-a USER)
+	(role concrete)
+	(slot cuadro
+		(type INSTANCE)
+		(create-accessor read-write))
+	(slot puntos 
+		(type INTEGER)
+		(create-accessor read-write))
+)
+
 
 (defmodule MAIN (export ?ALL))
 
@@ -986,18 +988,22 @@
 	(export ?ALL)
 )
 
+(defmodule procesar-datos
+
+)
+
+
 (deftemplate MAIN::visita
-	(slot tamano (type INTEGER) (default -1)) ;tamanyo del grupo
-	(slot conocimiento (type INTEGER)(default -1)) ;conocimiento
+	(slot tamano (type INTEGER) (default -1)) 
+	(slot conocimiento (type INTEGER)(default -1)) 
 	(slot ninos (type INTEGER) (default -1))
-	;(slot edad (type INTEGER)(default -1)) ;edad general del grupo
-    (slot dias (type INTEGER)(default -1)) ;nº dias en visitar el museo
-    (slot horas (type INTEGER)(default -1)) ;nº horas/dia
-    (slot tiempoTotal (type INTEGER)(default -1)) ;total de tiempo
+    (slot dias (type INTEGER)(default -1)) 
+    (slot horas (type INTEGER)(default -1))
+    (slot tiempoTotal (type INTEGER)(default -1))
 	(multislot epocasPref (type INSTANCE)) 
 	(multislot estilosPref (type INSTANCE))
 	(multislot pintoresPref (type INSTANCE))
-	(multislot tematicasPref (type INSTANCE))
+	(multislot tematicaPref (type INSTANCE))
 )
 
 (defrule recopilacion-datos::tamano-grupo 
@@ -1061,7 +1067,7 @@
 (deffacts recopilacion-datos::todo-ask 
 	(faltaPreguntarEpocas)
 	(faltaPreguntarEstilos)
-	(faltaPreguntarPintores)
+	(faltaPreguntarAutores)
 	(faltaPreguntarTematicas)
 )
 
@@ -1078,6 +1084,7 @@
 		(printout t ?i ". " ?nombre crlf) 
 	)
 
+	; CAMBIAR ALGO 
 	(bind ?ans (readline))
     (bind ?num (str-explode ?ans))
     (bind $?chosen (create$))
@@ -1098,76 +1105,6 @@
 	(modify ?e (epocasPref $?r))
 	(retract ?done)
 )
-
-(defrule recopilacion-datos::getPintoresPref 
-	?e <- (visita)
-	?done <- (faltaPreguntarPintores)
-	=>
-	(printout t "Seleccione sus pintores preferidos: " crlf)
-	(bind $?lista-pintores (find-all-instances ((?inst Pintor)) TRUE))
-	(bind $?lista-nombres (create$))
-	(loop-for-count (?i 1 (length$ $?lista-pintores)) do
-		(bind ?actual (nth$ ?i ?lista-pintores))
-		(bind ?nombre (send ?actual get-NombrePintor))
-		(printout t ?i ". " ?nombre crlf) 
-	)
-
-	(bind ?ans (readline))
-    (bind ?num (str-explode ?ans))
-    (bind $?chosen (create$))
-    (progn$ (?j ?num) 
-        (if (and (integerp ?j)  (> ?j 0))
-            then 
-                (if (not (member$ ?j ?chosen))
-                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
-                )
-        ) 
-    )
-	(bind $?r (create$ ))
-	(loop-for-count (?i 1 (length$ ?chosen)) do
-		(bind ?curr-index (nth$ ?i ?chosen))
-		(bind ?curr-pintor (nth$ ?curr-index ?lista-pintores))
-		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-pintor))
-	)
-	(modify ?e (pintoresPref $?r))
-	(retract ?done)
-)
-
-(defrule recopilacion-datos::getTematicasPref 
-	?e <- (visita)
-	?done <- (faltaPreguntarTematicas)
-	=>
-	(printout t "Seleccione sus tematicas preferidas: " crlf)
-	(bind $?lista-tematicas (find-all-instances ((?inst Tematica)) TRUE))
-	(bind $?lista-nombres (create$))
-	(loop-for-count (?i 1 (length$ $?lista-tematicas)) do
-		(bind ?actual (nth$ ?i ?lista-tematicas))
-		(bind ?nombre (send ?actual get-NombreTem))
-		(printout t ?i ". " ?nombre crlf) 
-	)
-
-	(bind ?ans (readline))
-    (bind ?num (str-explode ?ans))
-    (bind $?chosen (create$))
-    (progn$ (?j ?num) 
-        (if (and (integerp ?j)  (> ?j 0))
-            then 
-                (if (not (member$ ?j ?chosen))
-                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
-                )
-        ) 
-    )
-	(bind $?r (create$ ))
-	(loop-for-count (?i 1 (length$ ?chosen)) do
-		(bind ?curr-index (nth$ ?i ?chosen))
-		(bind ?curr-tematica (nth$ ?curr-index ?lista-tematicas))
-		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-tematica))
-	)
-	(modify ?e (tematicasPref $?r))
-	(retract ?done)
-)
-
-
 
 (defrule recopilacion-datos::getEstilosPref 
 	?e <- (visita)
@@ -1203,6 +1140,7 @@
 	(modify ?e (estilosPref $?r))
 	(retract ?done)
 )
+
 
 (defmessage-handler MAIN::Cuadro imprimir ()
 	(format t "Titulo: %s %n" ?self:NombreCuadro)

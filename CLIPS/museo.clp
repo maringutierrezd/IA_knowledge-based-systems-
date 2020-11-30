@@ -1014,14 +1014,8 @@
 )
 
 (defrule recopilacion-datos::hay-ninos 
-	(not (visita))
-	=>
-	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
-	(bind ?x (read))
-	(assert (visita (ninos ?x)))
-
 	?g <- (visita (ninos ?nin))
-	(test (< ?tam 0))
+	(test (< ?nin 0))
 	=>
 	(printout t "Hay ninos en el grupo? [0:no / 1: si]" crlf)
 	(bind ?x (read))

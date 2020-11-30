@@ -1058,8 +1058,16 @@
 	(focus MAIN)
 )
 
+(deffacts recopilacion-datos::todo-ask 
+	(faltaPreguntarEpocas)
+	(faltaPreguntarEstilos)
+	(faltaPreguntarAutores)
+	(faltaPreguntarTematicas)
+)
+
 (defrule recopilacion-datos::getEpocasPref 
 	?e <- (visita)
+	?done <- (faltaPreguntarEpocas)
 	=>
 	(printout t "Seleccione sus epocas preferidas: " crlf)
 	(bind $?lista-epocas (find-all-instances ((?inst Epoca)) TRUE))
@@ -1071,24 +1079,25 @@
 	)
 
 	; CAMBIAR ALGO 
-	(bind ?resp (readline))
-    (bind ?numeros (str-explode ?resp))
-    (bind $?escogido (create$))
-    (progn$ (?var ?numeros) 
-        (if (and (integerp ?var)  (> ?var 0))
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
             then 
-                (if (not (member$ ?var ?escogido))
-                    then (bind ?escogido (insert$ ?escogido (+ (length$ ?escogido) 1) ?var))
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
                 )
         ) 
     )
-	(bind $?respuesta (create$ ))
-	(loop-for-count (?i 1 (length$ ?escogido)) do
-		(bind ?curr-index (nth$ ?i ?escogido))
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
 		(bind ?curr-autor (nth$ ?curr-index ?lista-epocas))
-		(bind $?respuesta(insert$ $?respuesta (+ (length$ $?respuesta) 1) ?curr-autor))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-autor))
 	)
-	(modify ?e (epocasPref $?respuesta))
+	(modify ?e (epocasPref $?r))
+	(retract ?done)
 )
 
 

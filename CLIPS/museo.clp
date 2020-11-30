@@ -1169,7 +1169,40 @@
 
 
 
+(defrule recopilacion-datos::getEstilosPref 
+	?e <- (visita)
+	?done <- (faltaPreguntarEstilos)
+	=>
+	(printout t "Seleccione sus estilos preferidas: " crlf)
+	(bind $?lista-estilos (find-all-instances ((?inst Estilo)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-estilos)) do
+		(bind ?actual (nth$ ?i ?lista-estilos))
+		(bind ?nombre (send ?actual get-NombreEst))
+		(printout t ?i ". " ?nombre crlf) 
+	)
 
+	; CAMBIAR ALGO 
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
+            then 
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
+                )
+        ) 
+    )
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
+		(bind ?curr-est (nth$ ?curr-index ?lista-estilos))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-est))
+	)
+	(modify ?e (estilosPref $?r))
+	(retract ?done)
+)
 
 (defmessage-handler MAIN::Cuadro imprimir ()
 	(format t "Titulo: %s %n" ?self:NombreCuadro)

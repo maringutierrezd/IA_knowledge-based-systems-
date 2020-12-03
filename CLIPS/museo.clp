@@ -1275,13 +1275,13 @@
 (defrule imprimir-resultado::imprimirListaValoraciones
 	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes" crlf)
 	(progn$ (?val ?valoraciones)
-		()
+		(printout t (send ?val imprimir))
 	)
-
 )
 
 (defmessage-handler MAIN::Valoracion imprimir ()
-
+	(printout t "Te recomendamos el siguiente cuadro con una puntuación de: %d %n" ?self:puntos)
+	(printout t (send ?self:cuadro imprimir))
 )
 
 

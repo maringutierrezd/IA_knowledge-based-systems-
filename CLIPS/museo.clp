@@ -1273,8 +1273,11 @@
 ;)
 
 (defrule imprimir-resultado::imprimirListaValoraciones
+	(TRUE)
+	=>
 	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes" crlf)
-	(progn$ (?val ?valoraciones)
+	(listaVal (valoraciones $?valoraciones))
+	(progn$ (?val $?valoraciones)
 		(printout t (send ?val imprimir))
 	)
 )
@@ -1292,7 +1295,8 @@
 	(format t "Ano: %d %n" ?self:A%C3%B1o)
 	(printout t crlf)
 
-	(format t "Autor: %s %n" ?self:NombrePintor)
+	(bind ?p (send ?self:cuad_pint get-Nombre))
+	(format t "Autor: %s %n" ?p)
 	(printout t crlf)
 
 	(format t "Sala: %d %n" ?self:Sala)

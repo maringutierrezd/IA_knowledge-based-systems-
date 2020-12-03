@@ -1269,8 +1269,21 @@
 )
 
 ;(defrule seleccion::ordenarLista
-;
+
 ;)
+
+(defrule imprimir-resultado::imprimirListaValoraciones
+	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes" crlf)
+	(progn$ (?val ?valoraciones)
+		()
+	)
+
+)
+
+(defmessage-handler MAIN::Valoracion imprimir ()
+
+)
+
 
 (defmessage-handler MAIN::Cuadro imprimir ()
 	(format t "Titulo: %s %n" ?self:NombreCuadro)

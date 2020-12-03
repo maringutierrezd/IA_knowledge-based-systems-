@@ -969,7 +969,7 @@
 ; A PARTIR DE AQUI CÓDIGO NUESTRO
 
 
-(defclass Eleccion ;ESTO AUN NO LO UTILIZAMOS
+(defclass Valoracion 
 	(is-a USER)
 	(role concrete)
 	(slot cuadro
@@ -989,7 +989,9 @@
 )
 
 (defmodule procesar-datos
-
+	(import MAIN ?ALL)
+	(import recopilacion-datos deftemplate ?ALL) ;probar con ?visita
+	(export ?ALL)
 )
 
 
@@ -1052,16 +1054,18 @@
 )
 
 (defrule recopilacion-datos::cuanto-tiempo
-	( declare (salience -1))
+	(declare (salience -10))
 	?h <- (visita (horas ?horas))
     ?d <- (visita (dias ?dias))
+	(test (> ?horas 0) )
+	(test (> ?dias 0) )
 	?t <- (visita (tiempoTotal ?tiempo))
 	(test (< ?tiempo 0))
 	=>
 	(bind ?tiempo (* ?horas ?dias))
 	(modify ?t (tiempoTotal ?tiempo))
 
-	(focus MAIN)
+	(focus procesar-datos)
 )
 
 (deffacts recopilacion-datos::todo-ask 
@@ -1142,10 +1146,34 @@
 )
 
 
+(defrule procesar-datos::instanciarValoraciones "Valoramos todos cuadros con 0 ptos"
+	(declare (salience 10))
+	=>
+	(bind $?Cuadros (find-all-instances ((?inst Cuadro)) TRUE))
+	(progn$ (?i ?Cuadros)
+		(printout t "Mis cojones en vinagre" crlf)
+		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0))
+	)
+)
+
+(defrule procesar-datos::puntosPitor "Anadimos puntos a la valoracion si el pintos está en pintores favoritos"
+	(visita (pintoresPref $?PintoresFav))
+	?valoracion<- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?cuadroB <- (object (is-a Cuadro)(cuad_pint ?pintor))
+	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
+	;igual poner assert
+	=>;AQUÍ LO DEJAMOS 
+	(printout t  crlf)
+
+)
+
+
+
 (defmessage-handler MAIN::Cuadro imprimir ()
 	(format t "Titulo: %s %n" ?self:NombreCuadro)
 	(printout t crlf)
 )
+
 
 (defrule MAIN::primera-regla 
 	( declare (salience 10))

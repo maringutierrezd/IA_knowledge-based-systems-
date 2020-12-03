@@ -1288,6 +1288,15 @@
 (defmessage-handler MAIN::Cuadro imprimir ()
 	(format t "Titulo: %s %n" ?self:NombreCuadro)
 	(printout t crlf)
+
+	(format t "Ano: %d %n" ?self:A%C3%B1o)
+	(printout t crlf)
+
+	(format t "Autor: %s %n" ?self:NombrePintor)
+	(printout t crlf)
+
+	(format t "Sala: %d %n" ?self:Sala)
+	(printout t crlf)
 )
 
 

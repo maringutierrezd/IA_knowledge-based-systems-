@@ -983,16 +983,29 @@
 
 (defmodule MAIN (export ?ALL))
 
-(defmodule recopilacion-datos
+(defmodule recopilacion-datos						; modulo de input
 	(import MAIN ?ALL)
 	(export ?ALL)
 )
 
 (defmodule procesar-datos
 	(import MAIN ?ALL)
-	(import recopilacion-datos deftemplate ?ALL) ;probar con ?visita
+	(import recopilacion-datos deftemplate ?ALL)   ; probar con ?visita
 	(export ?ALL)
 )
+
+(defmodule seleccion
+	(import MAIN ?ALL)
+	(import recopilacion-datos deftemplate ?ALL)
+	(export ?ALL)
+)
+
+(defmodule imprimir-resultado						; modulo de output
+	(import MAIN ?ALL)
+	(import recopilacion-datos deftemplate ?ALL)
+	(export ?ALL)
+)
+
 
 
 (deftemplate MAIN::visita
@@ -1005,7 +1018,11 @@
 	(multislot epocasPref (type INSTANCE)) 
 	(multislot estilosPref (type INSTANCE))
 	(multislot pintoresPref (type INSTANCE))
-	(multislot tematicaPref (type INSTANCE))
+	(multislot tematicasPref (type INSTANCE))
+)
+
+(deftemplate MAIN::listaVal
+	(multislot valoraciones (type INSTANCE))
 )
 
 (defrule recopilacion-datos::tamano-grupo 
@@ -1071,8 +1088,76 @@
 (deffacts recopilacion-datos::todo-ask 
 	(faltaPreguntarEpocas)
 	(faltaPreguntarEstilos)
-	(faltaPreguntarAutores)
+	(faltaPreguntarPintores)
 	(faltaPreguntarTematicas)
+)
+
+(defrule recopilacion-datos::getPintoresPref 
+	?e <- (visita)
+	?done <- (faltaPreguntarPintores)
+	=>
+	(printout t "Seleccione sus pintores preferidos: " crlf)
+	(bind $?lista-pintores (find-all-instances ((?inst Pintor)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-pintores)) do
+		(bind ?actual (nth$ ?i ?lista-pintores))
+		(bind ?nombre (send ?actual get-NombrePintor))
+		(printout t ?i ". " ?nombre crlf) 
+	)
+
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
+            then 
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
+                )
+        ) 
+    )
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
+		(bind ?curr-pintor (nth$ ?curr-index ?lista-pintores))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-pintor))
+	)
+	(modify ?e (pintoresPref $?r))
+	(retract ?done)
+)
+
+(defrule recopilacion-datos::getTematicasPref 
+	?e <- (visita)
+	?done <- (faltaPreguntarTematicas)
+	=>
+	(printout t "Seleccione sus tematicas preferidas: " crlf)
+	(bind $?lista-tematicas (find-all-instances ((?inst Tematica)) TRUE))
+	(bind $?lista-nombres (create$))
+	(loop-for-count (?i 1 (length$ $?lista-tematicas)) do
+		(bind ?actual (nth$ ?i ?lista-tematicas))
+		(bind ?nombre (send ?actual get-NombreTem))
+		(printout t ?i ". " ?nombre crlf) 
+	)
+
+	(bind ?ans (readline))
+    (bind ?num (str-explode ?ans))
+    (bind $?chosen (create$))
+    (progn$ (?j ?num) 
+        (if (and (integerp ?j)  (> ?j 0))
+            then 
+                (if (not (member$ ?j ?chosen))
+                    then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
+                )
+        ) 
+    )
+	(bind $?r (create$ ))
+	(loop-for-count (?i 1 (length$ ?chosen)) do
+		(bind ?curr-index (nth$ ?i ?chosen))
+		(bind ?curr-tematica (nth$ ?curr-index ?lista-tematicas))
+		(bind $?r(insert$ $?r (+ (length$ $?r) 1) ?curr-tematica))
+	)
+	(modify ?e (tematicasPref $?r))
+	(retract ?done)
 )
 
 (defrule recopilacion-datos::getEpocasPref 
@@ -1088,7 +1173,6 @@
 		(printout t ?i ". " ?nombre crlf) 
 	)
 
-	; CAMBIAR ALGO 
 	(bind ?ans (readline))
     (bind ?num (str-explode ?ans))
     (bind $?chosen (create$))
@@ -1123,7 +1207,6 @@
 		(printout t ?i ". " ?nombre crlf) 
 	)
 
-	; CAMBIAR ALGO 
 	(bind ?ans (readline))
     (bind ?num (str-explode ?ans))
     (bind $?chosen (create$))
@@ -1156,18 +1239,38 @@
 	)
 )
 
-(defrule procesar-datos::puntosPitor "Anadimos puntos a la valoracion si el pintos está en pintores favoritos"
+(defrule procesar-datos::puntosPitor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"
 	(visita (pintoresPref $?PintoresFav))
-	?valoracion<- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
 	?cuadroB <- (object (is-a Cuadro)(cuad_pint ?pintor))
 	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
-	;igual poner assert
-	=>;AQUÍ LO DEJAMOS 
-	(printout t  crlf)
-
+	(test (member ?pintor ?PintoresFav))
+	(not (valoradoPintor ?cuadro))
+	=>
+	(bind ?puntos (+ ?puntos 50))
+	(send ?valoracion put-puntos ?puntos)
+	(assert (valoradoPintor ?cuadro))
+	(focus seleccion)
 )
 
+(defrule seleccion::crearLista
+	(not (listaVal))
+	=>
+	(assert (listaVal))
+)
 
+(defrule seleccion::rellenarLista
+	?v <- (object (is-a Valoracion))
+	?l <- (listaVal (valoraciones $?vals))
+	(test(not(member$ ?v $?vals)))
+	=>
+	(bind $?vals (insert$ $?vals (+ (length$ $?vals) 1) ?v))
+	(modify ?l (valoraciones ?vals))
+)
+
+;(defrule seleccion::ordenarLista
+;
+;)
 
 (defmessage-handler MAIN::Cuadro imprimir ()
 	(format t "Titulo: %s %n" ?self:NombreCuadro)
@@ -1188,4 +1291,3 @@
 	=>
 	(printout t (send ?cuad imprimir) crlf)
 )
-

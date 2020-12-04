@@ -1182,9 +1182,9 @@
                 (if (not (member$ ?j ?chosen))
                     then (bind ?chosen (insert$ ?chosen (+ (length$ ?chosen) 1) ?j))
                 )
-        ) 
+        )
     )
-	(bind $?r (create$ ))
+	(bind $?r (create$))
 	(loop-for-count (?i 1 (length$ ?chosen)) do
 		(bind ?curr-index (nth$ ?i ?chosen))
 		(bind ?curr-autor (nth$ ?curr-index ?lista-epocas))
@@ -1266,6 +1266,7 @@
 	=>
 	(bind $?vals (insert$ $?vals (+ (length$ $?vals) 1) ?v))
 	(modify ?l (valoraciones ?vals))
+	(focus imprimir-resultado)
 )
 
 ;(defrule seleccion::ordenarLista
@@ -1273,17 +1274,18 @@
 ;)
 
 (defrule imprimir-resultado::imprimirListaValoraciones
-	(TRUE)
+	?l <- (listaVal (valoraciones $?valoraciones))
+	(not (imprimido-resultado))
 	=>
-	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes" crlf)
-	(listaVal (valoraciones $?valoraciones))
+	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes: " crlf)
 	(progn$ (?val $?valoraciones)
 		(printout t (send ?val imprimir))
 	)
+	(assert (imprimido-resultado))
 )
 
 (defmessage-handler MAIN::Valoracion imprimir ()
-	(printout t "Te recomendamos el siguiente cuadro con una puntuación de: %d %n" ?self:puntos)
+	(printout t "Te recomendamos el siguiente cuadro con una puntuacion de: " ?self:puntos " puntos " crlf)
 	(printout t (send ?self:cuadro imprimir))
 )
 
@@ -1295,7 +1297,7 @@
 	(format t "Ano: %d %n" ?self:A%C3%B1o)
 	(printout t crlf)
 
-	(bind ?p (send ?self:cuad_pint get-Nombre))
+	(bind ?p (send ?self:cuad_pint get-NombrePintor))
 	(format t "Autor: %s %n" ?p)
 	(printout t crlf)
 
@@ -1311,9 +1313,3 @@
 	(focus recopilacion-datos)
 )
 
-
-(defrule MAIN::nombre-cuadros 
-	?cuad <- (object (is-a Cuadro)) 
-	=>
-	(printout t (send ?cuad imprimir) crlf)
-)

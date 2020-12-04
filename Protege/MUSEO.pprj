@@ -1,4 +1,4 @@
-; Wed Nov 25 16:14:29 CET 2020
+; Fri Dec 04 14:55:17 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -20,14 +20,14 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[MUSEO_ProjectKB_Class10091]
-		[MUSEO_ProjectKB_Class10092]
-		[MUSEO_ProjectKB_Class10093]
-		[MUSEO_ProjectKB_Class10094]
-		[MUSEO_ProjectKB_Class10095]
-		[MUSEO_ProjectKB_Class10096]
-		[MUSEO_ProjectKB_Class10097]
-		[MUSEO_ProjectKB_Class10098]))
+		[MUSEO_ProjectKB_Class9]
+		[MUSEO_ProjectKB_Class10]
+		[MUSEO_ProjectKB_Class11]
+		[MUSEO_ProjectKB_Class12]
+		[MUSEO_ProjectKB_Class13]
+		[MUSEO_ProjectKB_Class14]
+		[MUSEO_ProjectKB_Class15]
+		[MUSEO_ProjectKB_Class16]))
 
 ([CLSES_TAB] of  Widget
 
@@ -71,6 +71,9 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
+([KB_371443_Class3] of  Map
+)
+
 ([KB_443340_Class0] of  String
 
 	(name "factory_class_name")
@@ -79,9 +82,9 @@
 ([KB_443340_Class1] of  Map
 
 	(entries
-		[MUSEO_ProjectKB_Class10099]
-		[MUSEO_ProjectKB_Class10100]
-		[MUSEO_ProjectKB_Class10101]))
+		[MUSEO_ProjectKB_Class17]
+		[MUSEO_ProjectKB_Class18]
+		[MUSEO_ProjectKB_Class19]))
 
 ([KB_443340_Class10] of  Property_List
 )
@@ -508,78 +511,75 @@
 
 	(properties [MUSEO_ProjectKB_Class110]))
 
-([KB_871568_Class3] of  Map
-)
-
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
 	(properties [VERTICAL_STRETCHER]))
 
-([MUSEO_ProjectKB_Class10091] of  String
+([MUSEO_ProjectKB_Class10] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([MUSEO_ProjectKB_Class10092] of  String
-
-	(name "Estilo")
-	(string_value "NombreEst"))
-
-([MUSEO_ProjectKB_Class10093] of  String
+([MUSEO_ProjectKB_Class11] of  String
 
 	(name "Pintor")
 	(string_value "NombrePintor"))
 
-([MUSEO_ProjectKB_Class10094] of  String
+([MUSEO_ProjectKB_Class110] of  String
+
+	(name "SearchTab_Query"))
+
+([MUSEO_ProjectKB_Class12] of  String
 
 	(name "Cuadro")
 	(string_value "NombreCuadro"))
 
-([MUSEO_ProjectKB_Class10095] of  String
+([MUSEO_ProjectKB_Class13] of  String
 
 	(name "Epoca")
 	(string_value "NombreEp"))
 
-([MUSEO_ProjectKB_Class10096] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([MUSEO_ProjectKB_Class10097] of  String
+([MUSEO_ProjectKB_Class14] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([MUSEO_ProjectKB_Class10098] of  String
+([MUSEO_ProjectKB_Class15] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([MUSEO_ProjectKB_Class16] of  String
 
 	(name "Tematica")
 	(string_value "NombreTem"))
 
-([MUSEO_ProjectKB_Class10099] of  Map_Entry
+([MUSEO_ProjectKB_Class17] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([MUSEO_ProjectKB_Class10100] of  Map_Entry
+([MUSEO_ProjectKB_Class18] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([MUSEO_ProjectKB_Class10101] of  Map_Entry
+([MUSEO_ProjectKB_Class19] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([MUSEO_ProjectKB_Class110] of  String
+([MUSEO_ProjectKB_Class9] of  String
 
-	(name "SearchTab_Query"))
+	(name "Estilo")
+	(string_value "NombreEst"))
 
 ([option_instance] of  Options
 
@@ -660,8 +660,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

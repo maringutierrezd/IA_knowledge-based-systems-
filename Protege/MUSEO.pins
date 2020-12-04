@@ -1,4 +1,4 @@
-; Wed Nov 25 16:14:29 CET 2020
+; Fri Dec 04 14:55:17 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -23,62 +23,26 @@
 
 ([MUSEO_Class10001] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class30000]
-		[MUSEO_Class40005])
-	(ep_pint [MUSEO_Class30001])
 	(NombreEp "Gotico"))
 
 ([MUSEO_Class10002] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class10042]
-		[MUSEO_Class20000]
-		[MUSEO_Class40000]
-		[MUSEO_Class40002])
-	(ep_pint
-		[MUSEO_Class10043]
-		[MUSEO_Class20001]
-		[MUSEO_Class40001])
 	(NombreEp "Renacimiento"))
 
 ([MUSEO_Class10003] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40003]
-		[MUSEO_Class40006]
-		[MUSEO_Class40008]
-		[MUSEO_Class40010]
-		[MUSEO_Class40012]
-		[MUSEO_Class40013])
-	(ep_pint
-		[MUSEO_Class40004]
-		[MUSEO_Class40009]
-		[MUSEO_Class40011])
 	(NombreEp "Barroco"))
 
 ([MUSEO_Class10004] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40015]
-		[MUSEO_Class40017])
-	(ep_pint [MUSEO_Class40016])
 	(NombreEp "Rococo"))
 
 ([MUSEO_Class10005] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40018]
-		[MUSEO_Class40021])
-	(ep_pint [MUSEO_Class40019])
 	(NombreEp "Neoclasicismo"))
 
 ([MUSEO_Class10006] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40023]
-		[MUSEO_Class40024])
-	(ep_pint [MUSEO_Class40022])
 	(NombreEp "Romanticismo"))
 
 ([MUSEO_Class10007] of  Epoca
@@ -91,76 +55,38 @@
 
 ([MUSEO_Class10009] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40023]
-		[MUSEO_Class40024])
-	(est_pint [MUSEO_Class40022])
 	(NombreEst "Romantico"))
 
 ([MUSEO_Class10010] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class30000]
-		[MUSEO_Class40005])
-	(est_pint [MUSEO_Class30001])
 	(NombreEst "Gotico"))
 
 ([MUSEO_Class10011] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class10042]
-		[MUSEO_Class20000])
-	(est_pint
-		[MUSEO_Class10043]
-		[MUSEO_Class20001])
 	(NombreEst "Cinquecento"))
 
 ([MUSEO_Class10012] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40000]
-		[MUSEO_Class40002])
-	(est_pint [MUSEO_Class40001])
 	(NombreEst "Manierista"))
 
 ([MUSEO_Class10013] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40008]
-		[MUSEO_Class40010])
-	(est_pint [MUSEO_Class40009])
 	(NombreEst "Escuela Espanola"))
 
 ([MUSEO_Class10015] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40003]
-		[MUSEO_Class40006])
-	(est_pint [MUSEO_Class40004])
 	(NombreEst "Escuela Holandesa"))
 
 ([MUSEO_Class10016] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40012]
-		[MUSEO_Class40013])
-	(est_pint [MUSEO_Class40011])
 	(NombreEst "Escuela Flamenca"))
 
 ([MUSEO_Class10017] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40015]
-		[MUSEO_Class40017])
-	(est_pint [MUSEO_Class40016])
 	(NombreEst "Rococo"))
 
 ([MUSEO_Class10018] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40018]
-		[MUSEO_Class40021])
-	(est_pint [MUSEO_Class40019])
 	(NombreEst "Neoclasico"))
 
 ([MUSEO_Class10020] of  Estilo
@@ -264,18 +190,12 @@
 ([MUSEO_Class10043] of  Pintor
 
 	(Nacionalidad "Italiana")
-	(NombrePintor "Leonardo da Vinci")
-	(pint_cuad [MUSEO_Class10042])
-	(pint_ep [MUSEO_Class10002])
-	(pint_est [MUSEO_Class10011]))
+	(NombrePintor "Leonardo da Vinci"))
 
 ([MUSEO_Class2] of  Pintor
 
 	(Nacionalidad "Noruega")
-	(NombrePintor "Edvard Munch")
-	(pint_cuad [MUSEO_Class0])
-	(pint_ep [MUSEO_Class4])
-	(pint_est [MUSEO_Class6]))
+	(NombrePintor "Edvard Munch"))
 
 ([MUSEO_Class20000] of  Cuadro
 
@@ -294,10 +214,7 @@
 ([MUSEO_Class20001] of  Pintor
 
 	(Nacionalidad "Italiana")
-	(NombrePintor "Rafael Sanzio")
-	(pint_cuad [MUSEO_Class20000])
-	(pint_ep [MUSEO_Class10002])
-	(pint_est [MUSEO_Class10011]))
+	(NombrePintor "Rafael Sanzio"))
 
 ([MUSEO_Class30000] of  Cuadro
 
@@ -316,17 +233,10 @@
 ([MUSEO_Class30001] of  Pintor
 
 	(Nacionalidad "Flamenco")
-	(NombrePintor "Jan van Eyck")
-	(pint_cuad
-		[MUSEO_Class30000]
-		[MUSEO_Class40005])
-	(pint_ep [MUSEO_Class10001])
-	(pint_est [MUSEO_Class10010]))
+	(NombrePintor "Jan van Eyck"))
 
 ([MUSEO_Class4] of  Epoca
 
-	(ep_cuad [MUSEO_Class0])
-	(ep_pint [MUSEO_Class2])
 	(NombreEp "Siglo XX (antes 1GM)"))
 
 ([MUSEO_Class40000] of  Cuadro
@@ -346,10 +256,7 @@
 ([MUSEO_Class40001] of  Pintor
 
 	(Nacionalidad "Griega")
-	(NombrePintor "El Greco")
-	(pint_cuad [MUSEO_Class40000])
-	(pint_ep [MUSEO_Class10002])
-	(pint_est [MUSEO_Class10012]))
+	(NombrePintor "El Greco"))
 
 ([MUSEO_Class40002] of  Cuadro
 
@@ -382,12 +289,7 @@
 ([MUSEO_Class40004] of  Pintor
 
 	(Nacionalidad "Holandesa")
-	(NombrePintor "Johannes Vermeer")
-	(pint_cuad
-		[MUSEO_Class40003]
-		[MUSEO_Class40006])
-	(pint_ep [MUSEO_Class10003])
-	(pint_est [MUSEO_Class10015]))
+	(NombrePintor "Johannes Vermeer"))
 
 ([MUSEO_Class40005] of  Cuadro
 
@@ -434,12 +336,7 @@
 ([MUSEO_Class40009] of  Pintor
 
 	(Nacionalidad "Espanola")
-	(NombrePintor "Diego Velazquez")
-	(pint_cuad
-		[MUSEO_Class40008]
-		[MUSEO_Class40010])
-	(pint_ep [MUSEO_Class10003])
-	(pint_est [MUSEO_Class10013]))
+	(NombrePintor "Diego Velazquez"))
 
 ([MUSEO_Class40010] of  Cuadro
 
@@ -458,12 +355,7 @@
 ([MUSEO_Class40011] of  Pintor
 
 	(Nacionalidad "Flamenca")
-	(NombrePintor "Pedro Pablo Rubens")
-	(pint_cuad
-		[MUSEO_Class40012]
-		[MUSEO_Class40013])
-	(pint_ep [MUSEO_Class10003])
-	(pint_est [MUSEO_Class10016]))
+	(NombrePintor "Pedro Pablo Rubens"))
 
 ([MUSEO_Class40012] of  Cuadro
 
@@ -508,10 +400,7 @@
 ([MUSEO_Class40016] of  Pintor
 
 	(Nacionalidad "Francesa")
-	(NombrePintor "Francois Boucher")
-	(pint_cuad [MUSEO_Class40015])
-	(pint_ep [MUSEO_Class10004])
-	(pint_est [MUSEO_Class10017]))
+	(NombrePintor "Francois Boucher"))
 
 ([MUSEO_Class40017] of  Cuadro
 
@@ -543,12 +432,7 @@
 ([MUSEO_Class40019] of  Pintor
 
 	(Nacionalidad "Francesa")
-	(NombrePintor "Jacques-Louis David")
-	(pint_cuad
-		[MUSEO_Class40018]
-		[MUSEO_Class40021])
-	(pint_ep [MUSEO_Class10005])
-	(pint_est [MUSEO_Class10018]))
+	(NombrePintor "Jacques-Louis David"))
 
 ([MUSEO_Class40021] of  Cuadro
 
@@ -567,12 +451,7 @@
 ([MUSEO_Class40022] of  Pintor
 
 	(Nacionalidad "Francesa")
-	(NombrePintor "Eugene Delacroix")
-	(pint_cuad
-		[MUSEO_Class40023]
-		[MUSEO_Class40024])
-	(pint_ep [MUSEO_Class10006])
-	(pint_est [MUSEO_Class10009]))
+	(NombrePintor "Eugene Delacroix"))
 
 ([MUSEO_Class40023] of  Cuadro
 
@@ -603,11 +482,8 @@
 
 ([MUSEO_Class6] of  Estilo
 
-	(est_cuad [MUSEO_Class0])
-	(est_pint [MUSEO_Class2])
 	(NombreEst "Expresionista"))
 
 ([MUSEO_Class8] of  Tematica
 
-	(NombreTem "Retrato")
-	(tem_cuad [MUSEO_Class0]))
+	(NombreTem "Retrato"))

@@ -1,4 +1,4 @@
-; Wed Nov 25 16:14:29 CET 2020
+; Fri Dec 04 14:55:17 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -49,15 +49,15 @@
 ;+		(allowed-classes Estilo)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Conocimiento
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_pint
 ;+		(comment "Pintor asociado al cuadro")
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Conocimiento
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Complejidad
 		(type INTEGER)
@@ -77,14 +77,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cuad_tema
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Alto
 ;+		(comment "Los centímetros que tiene de alto un cuadro")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cuad_tema
+		(type INSTANCE)
+;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot NombreEp
@@ -104,13 +104,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(multislot ep_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
-		(create-accessor read-write))
 	(single-slot Tama%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ep_pint
+		(type INSTANCE)
+;+		(allowed-classes Pintor)
 		(create-accessor read-write))
 	(single-slot Num_dias
 		(type INTEGER)
@@ -164,11 +164,11 @@
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Complejidad
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Complejidad
+	(single-slot A%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -187,14 +187,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cuad_tema
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Alto
 ;+		(comment "Los centímetros que tiene de alto un cuadro")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cuad_tema
+		(type INSTANCE)
+;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -210,21 +210,9 @@
 (defclass Pintor
 	(is-a USER)
 	(role concrete)
-	(multislot pint_ep
-		(type INSTANCE)
-;+		(allowed-classes Epoca)
-		(create-accessor read-write))
 	(single-slot NombrePintor
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot pint_est
-		(type INSTANCE)
-;+		(allowed-classes Estilo)
-		(create-accessor read-write))
-	(multislot pint_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
 	(single-slot Nacionalidad
 		(type STRING)
@@ -234,10 +222,6 @@
 (defclass Tematica
 	(is-a USER)
 	(role concrete)
-	(multislot tem_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
-		(create-accessor read-write))
 	(single-slot NombreTem
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -249,40 +233,24 @@
 	(single-slot NombreEp
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot ep_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
-		(create-accessor read-write))
-	(multislot ep_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
 		(create-accessor read-write)))
 
 (defclass Estilo
 	(is-a USER)
 	(role concrete)
-	(multislot est_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
-		(create-accessor read-write))
 	(single-slot NombreEst
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot est_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
 		(create-accessor read-write)))
 
 (defclass Visita
 	(is-a USER)
 	(role concrete)
-	(single-slot Conocimiento
+	(single-slot Num_dias
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Num_dias
+	(single-slot Conocimiento
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))

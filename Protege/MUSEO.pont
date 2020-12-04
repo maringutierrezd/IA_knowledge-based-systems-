@@ -1,4 +1,4 @@
-; Fri Dec 04 14:55:17 CET 2020
+; Fri Dec 04 15:19:49 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -49,14 +49,19 @@
 ;+		(allowed-classes Estilo)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Conocimiento
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot cuad_pint
 ;+		(comment "Pintor asociado al cuadro")
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Conocimiento
-		(type INTEGER)
+	(single-slot cuadro
+		(type INSTANCE)
+;+		(allowed-classes Cuadro)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Complejidad
@@ -77,18 +82,22 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Alto
-;+		(comment "Los centímetros que tiene de alto un cuadro")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_tema
 		(type INSTANCE)
 ;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Alto
+;+		(comment "Los centímetros que tiene de alto un cuadro")
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot NombreEp
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot puntos
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot pint_ep
@@ -104,13 +113,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(single-slot Tama%C3%B1o
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot ep_pint
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
+		(create-accessor read-write))
+	(single-slot Tama%C3%B1o
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Num_dias
 		(type INTEGER)
@@ -142,7 +151,7 @@
 		(create-accessor read-write))
 	(single-slot visita_pref
 		(type INSTANCE)
-;+		(allowed-classes Preferencia)
+;+		(allowed-classes)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -164,11 +173,11 @@
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Complejidad
+	(single-slot A%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Complejidad
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -187,14 +196,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Alto
-;+		(comment "Los centímetros que tiene de alto un cuadro")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_tema
 		(type INSTANCE)
 ;+		(allowed-classes Tematica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Alto
+;+		(comment "Los centímetros que tiene de alto un cuadro")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -243,47 +252,15 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Visita
+(defclass Valoracion
 	(is-a USER)
 	(role concrete)
-	(single-slot Num_dias
+	(single-slot puntos
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Conocimiento
-		(type INTEGER)
+	(single-slot cuadro
+		(type INSTANCE)
+;+		(allowed-classes Cuadro)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Num_horas
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot visita_pref
-		(type INSTANCE)
-;+		(allowed-classes Preferencia)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Tama%C3%B1o
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Preferencia
-	(is-a USER)
-	(role concrete)
-	(multislot pref_ep
-		(type INSTANCE)
-;+		(allowed-classes Epoca)
-		(create-accessor read-write))
-	(multislot pref_est
-		(type INSTANCE)
-;+		(allowed-classes Estilo)
-		(create-accessor read-write))
-	(multislot pref_tem
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-		(create-accessor read-write))
-	(multislot pref_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
 		(create-accessor read-write)))

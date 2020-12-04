@@ -1,0 +1,14 @@
+digraph "MUSEO" {
+
+"Estilo" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Estilo|{NombreEst|String}}"]
+"Valoracion" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Valoracion|{cuadro|Instance|{Cuadro}}|{puntos|Integer}}"]
+"Valoracion"->"Cuadro" [style=filled, label="cuadro", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Pintor" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Pintor|{NombrePintor|String}|{Nacionalidad|String}}"]
+"Cuadro" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Cuadro|{cuad_est|Instance|{Estilo}}|{cuad_pint|Instance|{Pintor}}|{Complejidad|Integer}|{Año|Integer}|{Largo|Integer}|{...}}"]
+"Cuadro"->"Estilo" [style=filled, label="cuad_est", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Cuadro"->"Pintor" [style=filled, label="cuad_pint", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Cuadro"->"Tematica" [style=filled, label="cuad_tema", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Cuadro"->"Epoca" [style=filled, label="cuad_ep", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Epoca" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Epoca|{NombreEp|String}}"]
+"Tematica" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Tematica|{NombreTem|String}}"]
+}

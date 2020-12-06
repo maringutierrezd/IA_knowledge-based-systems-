@@ -1422,6 +1422,11 @@
 	(bind ?puntos (+ ?puntos 50))
 	(send ?valoracion put-puntos ?puntos)
 	(assert (valoradoPintor ?cuadro))
+)
+
+(defrule procesar-datos::FinalProcesado
+	(declare (salience -10))
+	=>
 	(focus seleccion)
 )
 
@@ -1448,16 +1453,29 @@
 
 (defrule seleccion::ordenarLista
 	(declare (salience -5))
-	(not (listaOrdenada))
+	(not (ordenacionListaHecha))
 	?l <- (listaVal(valoraciones $?listaDesordenada))
 	=>
 	(bind $?listaOrdenada (create$))
 	(while (not (eq (length$ $?listaDesordenada) 0)) do 
-		;CALCULAMOS EL MÁXIMO DE LA LISTA DESORDENADA; LO QUITAMOS DE LA LISTA DESORDENADA; LO METEMOS EN LA LISTA ORDENADA
-
-	
+		;CALCULAMOS EL MAXIMO 
+		(bind ?max -1)
+		(progn$ (?i $?listaDesordenada)
+			(bind ?puntos (send ?i get-puntos))
+			(if (> ?puntos ?max) then
+				(bind ?max ?puntos)
+				(bind ?valoracion ?i)
+			)
+		)
+		;LO QUITAMOS DE LA LISTA DESORDENADA
+		(bind $?listaDesordenada (delete-member$ $?listaDesordenada ?valoracion))
+		;LO METEMOS EN LA LISTA ORDENADA
+		(bind $?listaOrdenada (insert$ $?listaOrdenada (+ (length$ $?listaOrdenada) 1) ?valoracion))
 	)
-	
+	;HACEMOS ASSERT PARA QUE NO SE VUELVA A EJECUTAR
+	(assert (ordenacionListaHecha))
+	;PONEMOS LA LISTA ORDENADA EN LISTA VAL
+	(modify ?l (valoraciones $?listaOrdenada))
 )
 
 (defrule imprimir-resultado::imprimirListaValoraciones

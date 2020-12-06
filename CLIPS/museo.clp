@@ -1412,6 +1412,7 @@
 )
 
 (defrule procesar-datos::puntosPintor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"
+	(declare (salience 4))
 	(visita (pintoresPref $?PintoresFav))
 	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
 	?cuadroB <- (object (is-a Cuadro)(cuad_pint ?pintor))
@@ -1422,6 +1423,48 @@
 	(bind ?puntos (+ ?puntos 50))
 	(send ?valoracion put-puntos ?puntos)
 	(assert (valoradoPintor ?cuadro))
+)
+
+(defrule procesar-datos::puntosEstilo "Anadimos puntos a la valoracion si el estilo esta en estilos favoritos"
+	(declare (salience 3))
+	(visita (estilosPref $?EstilosFav))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?cuadroB <- (object (is-a Cuadro)(cuad_est ?estilo))
+	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
+	(test (member ?estilo ?EstilosFav))
+	(not (valoradoEstilo ?cuadro))
+	=>
+	(bind ?puntos (+ ?puntos 50))
+	(send ?valoracion put-puntos ?puntos)
+	(assert (valoradoEstilo ?cuadro))
+)
+
+(defrule procesar-datos::puntosTema "Anadimos puntos a la valoracion si la tematica esta en tematicas favoritas"
+	(declare (salience 2))
+	(visita (tematicasPref $?TematicasFav))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?cuadroB <- (object (is-a Cuadro)(cuad_tema ?tema))
+	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
+	(test (member ?tema ?TematicasFav))
+	(not (valoradoTematica ?cuadro))
+	=>
+	(bind ?puntos (+ ?puntos 50))
+	(send ?valoracion put-puntos ?puntos)
+	(assert (valoradoTematica ?cuadro))
+)
+
+(defrule procesar-datos::puntosEpoca "Anadimos puntos a la valoracion si la temaepocatica esta en epocas favoritas"
+	(declare (salience 1))
+	(visita (epocasPref $?EpocasFav))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?cuadroB <- (object (is-a Cuadro)(cuad_ep ?epoca))
+	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
+	(test (member ?epoca ?EpocasFav))
+	(not (valoradoEpoca ?cuadro))
+	=>
+	(bind ?puntos (+ ?puntos 50))
+	(send ?valoracion put-puntos ?puntos)
+	(assert (valoradoEpoca ?cuadro))
 	(focus seleccion)
 )
 
@@ -1446,19 +1489,7 @@
  	(focus imprimir-resultado)
 )
 
-(defrule seleccion::ordenarLista
-	(declare (salience -5))
-	(not (listaOrdenada))
-	?l <- (listaVal(valoraciones $?listaDesordenada))
-	=>
-	(bind $?listaOrdenada (create$))
-	(while (not (eq (length$ $?listaDesordenada) 0)) do 
-		;CALCULAMOS EL MÁXIMO DE LA LISTA DESORDENADA; LO QUITAMOS DE LA LISTA DESORDENADA; LO METEMOS EN LA LISTA ORDENADA
 
-	
-	)
-	
-)
 
 (defrule imprimir-resultado::imprimirListaValoraciones
 	?l <- (listaVal (valoraciones $?valoraciones))

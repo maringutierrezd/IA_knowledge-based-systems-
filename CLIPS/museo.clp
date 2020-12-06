@@ -1,4 +1,4 @@
-; Wed Nov 25 16:14:29 CET 2020
+; Sun Dec 06 15:27:12 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -59,6 +59,11 @@
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot cuadro
+		(type INSTANCE)
+;+		(allowed-classes Cuadro)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot Complejidad
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -89,6 +94,10 @@
 		(create-accessor read-write))
 	(single-slot NombreEp
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot puntos
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot pint_ep
@@ -142,7 +151,7 @@
 		(create-accessor read-write))
 	(single-slot visita_pref
 		(type INSTANCE)
-;+		(allowed-classes Preferencia)
+;+		(allowed-classes)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -210,21 +219,9 @@
 (defclass Pintor
 	(is-a USER)
 	(role concrete)
-	(multislot pint_ep
-		(type INSTANCE)
-;+		(allowed-classes Epoca)
-		(create-accessor read-write))
 	(single-slot NombrePintor
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot pint_est
-		(type INSTANCE)
-;+		(allowed-classes Estilo)
-		(create-accessor read-write))
-	(multislot pint_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
 	(single-slot Nacionalidad
 		(type STRING)
@@ -234,10 +231,6 @@
 (defclass Tematica
 	(is-a USER)
 	(role concrete)
-	(multislot tem_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
-		(create-accessor read-write))
 	(single-slot NombreTem
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -249,75 +242,27 @@
 	(single-slot NombreEp
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot ep_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
-		(create-accessor read-write))
-	(multislot ep_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
 		(create-accessor read-write)))
 
 (defclass Estilo
 	(is-a USER)
 	(role concrete)
-	(multislot est_cuad
-		(type INSTANCE)
-;+		(allowed-classes Cuadro)
-		(create-accessor read-write))
 	(single-slot NombreEst
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot est_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
 		(create-accessor read-write)))
 
-(defclass Visita
+(defclass Valoracion
 	(is-a USER)
 	(role concrete)
-	(single-slot Conocimiento
+	(single-slot puntos
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Num_dias
-		(type INTEGER)
+	(single-slot cuadro
+		(type INSTANCE)
+;+		(allowed-classes Cuadro)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Num_horas
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot visita_pref
-		(type INSTANCE)
-;+		(allowed-classes Preferencia)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Tama%C3%B1o
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Preferencia
-	(is-a USER)
-	(role concrete)
-	(multislot pref_ep
-		(type INSTANCE)
-;+		(allowed-classes Epoca)
-		(create-accessor read-write))
-	(multislot pref_est
-		(type INSTANCE)
-;+		(allowed-classes Estilo)
-		(create-accessor read-write))
-	(multislot pref_tem
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-		(create-accessor read-write))
-	(multislot pref_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
 		(create-accessor read-write)))
 
 
@@ -347,6 +292,11 @@
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
+; Sun Dec 06 15:27:12 CET 2020
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
 ([MUSEO_Class0] of  Cuadro
 
 	(Alto 91)
@@ -367,62 +317,26 @@
 
 ([MUSEO_Class10001] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class30000]
-		[MUSEO_Class40005])
-	(ep_pint [MUSEO_Class30001])
 	(NombreEp "Gotico"))
 
 ([MUSEO_Class10002] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class10042]
-		[MUSEO_Class20000]
-		[MUSEO_Class40000]
-		[MUSEO_Class40002])
-	(ep_pint
-		[MUSEO_Class10043]
-		[MUSEO_Class20001]
-		[MUSEO_Class40001])
 	(NombreEp "Renacimiento"))
 
 ([MUSEO_Class10003] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40003]
-		[MUSEO_Class40006]
-		[MUSEO_Class40008]
-		[MUSEO_Class40010]
-		[MUSEO_Class40012]
-		[MUSEO_Class40013])
-	(ep_pint
-		[MUSEO_Class40004]
-		[MUSEO_Class40009]
-		[MUSEO_Class40011])
 	(NombreEp "Barroco"))
 
 ([MUSEO_Class10004] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40015]
-		[MUSEO_Class40017])
-	(ep_pint [MUSEO_Class40016])
 	(NombreEp "Rococo"))
 
 ([MUSEO_Class10005] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40018]
-		[MUSEO_Class40021])
-	(ep_pint [MUSEO_Class40019])
 	(NombreEp "Neoclasicismo"))
 
 ([MUSEO_Class10006] of  Epoca
 
-	(ep_cuad
-		[MUSEO_Class40023]
-		[MUSEO_Class40024])
-	(ep_pint [MUSEO_Class40022])
 	(NombreEp "Romanticismo"))
 
 ([MUSEO_Class10007] of  Epoca
@@ -435,76 +349,38 @@
 
 ([MUSEO_Class10009] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40023]
-		[MUSEO_Class40024])
-	(est_pint [MUSEO_Class40022])
 	(NombreEst "Romantico"))
 
 ([MUSEO_Class10010] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class30000]
-		[MUSEO_Class40005])
-	(est_pint [MUSEO_Class30001])
 	(NombreEst "Gotico"))
 
 ([MUSEO_Class10011] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class10042]
-		[MUSEO_Class20000])
-	(est_pint
-		[MUSEO_Class10043]
-		[MUSEO_Class20001])
 	(NombreEst "Cinquecento"))
 
 ([MUSEO_Class10012] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40000]
-		[MUSEO_Class40002])
-	(est_pint [MUSEO_Class40001])
 	(NombreEst "Manierista"))
 
 ([MUSEO_Class10013] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40008]
-		[MUSEO_Class40010])
-	(est_pint [MUSEO_Class40009])
 	(NombreEst "Escuela Espanola"))
 
 ([MUSEO_Class10015] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40003]
-		[MUSEO_Class40006])
-	(est_pint [MUSEO_Class40004])
 	(NombreEst "Escuela Holandesa"))
 
 ([MUSEO_Class10016] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40012]
-		[MUSEO_Class40013])
-	(est_pint [MUSEO_Class40011])
 	(NombreEst "Escuela Flamenca"))
 
 ([MUSEO_Class10017] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40015]
-		[MUSEO_Class40017])
-	(est_pint [MUSEO_Class40016])
 	(NombreEst "Rococo"))
 
 ([MUSEO_Class10018] of  Estilo
 
-	(est_cuad
-		[MUSEO_Class40018]
-		[MUSEO_Class40021])
-	(est_pint [MUSEO_Class40019])
 	(NombreEst "Neoclasico"))
 
 ([MUSEO_Class10020] of  Estilo
@@ -608,18 +484,12 @@
 ([MUSEO_Class10043] of  Pintor
 
 	(Nacionalidad "Italiana")
-	(NombrePintor "Leonardo da Vinci")
-	(pint_cuad [MUSEO_Class10042])
-	(pint_ep [MUSEO_Class10002])
-	(pint_est [MUSEO_Class10011]))
+	(NombrePintor "Leonardo da Vinci"))
 
 ([MUSEO_Class2] of  Pintor
 
 	(Nacionalidad "Noruega")
-	(NombrePintor "Edvard Munch")
-	(pint_cuad [MUSEO_Class0])
-	(pint_ep [MUSEO_Class4])
-	(pint_est [MUSEO_Class6]))
+	(NombrePintor "Edvard Munch"))
 
 ([MUSEO_Class20000] of  Cuadro
 
@@ -638,10 +508,7 @@
 ([MUSEO_Class20001] of  Pintor
 
 	(Nacionalidad "Italiana")
-	(NombrePintor "Rafael Sanzio")
-	(pint_cuad [MUSEO_Class20000])
-	(pint_ep [MUSEO_Class10002])
-	(pint_est [MUSEO_Class10011]))
+	(NombrePintor "Rafael Sanzio"))
 
 ([MUSEO_Class30000] of  Cuadro
 
@@ -660,17 +527,10 @@
 ([MUSEO_Class30001] of  Pintor
 
 	(Nacionalidad "Flamenco")
-	(NombrePintor "Jan van Eyck")
-	(pint_cuad
-		[MUSEO_Class30000]
-		[MUSEO_Class40005])
-	(pint_ep [MUSEO_Class10001])
-	(pint_est [MUSEO_Class10010]))
+	(NombrePintor "Jan van Eyck"))
 
 ([MUSEO_Class4] of  Epoca
 
-	(ep_cuad [MUSEO_Class0])
-	(ep_pint [MUSEO_Class2])
 	(NombreEp "Siglo XX (antes 1GM)"))
 
 ([MUSEO_Class40000] of  Cuadro
@@ -690,10 +550,7 @@
 ([MUSEO_Class40001] of  Pintor
 
 	(Nacionalidad "Griega")
-	(NombrePintor "El Greco")
-	(pint_cuad [MUSEO_Class40000])
-	(pint_ep [MUSEO_Class10002])
-	(pint_est [MUSEO_Class10012]))
+	(NombrePintor "El Greco"))
 
 ([MUSEO_Class40002] of  Cuadro
 
@@ -726,12 +583,7 @@
 ([MUSEO_Class40004] of  Pintor
 
 	(Nacionalidad "Holandesa")
-	(NombrePintor "Johannes Vermeer")
-	(pint_cuad
-		[MUSEO_Class40003]
-		[MUSEO_Class40006])
-	(pint_ep [MUSEO_Class10003])
-	(pint_est [MUSEO_Class10015]))
+	(NombrePintor "Johannes Vermeer"))
 
 ([MUSEO_Class40005] of  Cuadro
 
@@ -778,12 +630,7 @@
 ([MUSEO_Class40009] of  Pintor
 
 	(Nacionalidad "Espanola")
-	(NombrePintor "Diego Velazquez")
-	(pint_cuad
-		[MUSEO_Class40008]
-		[MUSEO_Class40010])
-	(pint_ep [MUSEO_Class10003])
-	(pint_est [MUSEO_Class10013]))
+	(NombrePintor "Diego Velazquez"))
 
 ([MUSEO_Class40010] of  Cuadro
 
@@ -802,12 +649,7 @@
 ([MUSEO_Class40011] of  Pintor
 
 	(Nacionalidad "Flamenca")
-	(NombrePintor "Pedro Pablo Rubens")
-	(pint_cuad
-		[MUSEO_Class40012]
-		[MUSEO_Class40013])
-	(pint_ep [MUSEO_Class10003])
-	(pint_est [MUSEO_Class10016]))
+	(NombrePintor "Pedro Pablo Rubens"))
 
 ([MUSEO_Class40012] of  Cuadro
 
@@ -852,10 +694,7 @@
 ([MUSEO_Class40016] of  Pintor
 
 	(Nacionalidad "Francesa")
-	(NombrePintor "Francois Boucher")
-	(pint_cuad [MUSEO_Class40015])
-	(pint_ep [MUSEO_Class10004])
-	(pint_est [MUSEO_Class10017]))
+	(NombrePintor "Francois Boucher"))
 
 ([MUSEO_Class40017] of  Cuadro
 
@@ -887,12 +726,7 @@
 ([MUSEO_Class40019] of  Pintor
 
 	(Nacionalidad "Francesa")
-	(NombrePintor "Jacques-Louis David")
-	(pint_cuad
-		[MUSEO_Class40018]
-		[MUSEO_Class40021])
-	(pint_ep [MUSEO_Class10005])
-	(pint_est [MUSEO_Class10018]))
+	(NombrePintor "Jacques-Louis David"))
 
 ([MUSEO_Class40021] of  Cuadro
 
@@ -911,12 +745,7 @@
 ([MUSEO_Class40022] of  Pintor
 
 	(Nacionalidad "Francesa")
-	(NombrePintor "Eugene Delacroix")
-	(pint_cuad
-		[MUSEO_Class40023]
-		[MUSEO_Class40024])
-	(pint_ep [MUSEO_Class10006])
-	(pint_est [MUSEO_Class10009]))
+	(NombrePintor "Eugene Delacroix"))
 
 ([MUSEO_Class40023] of  Cuadro
 
@@ -945,16 +774,372 @@
 	(Relevancia 2)
 	(Sala 2))
 
+([MUSEO_Class50000] of  Cuadro
+
+	(Alto 84)
+	(A%C3%B1o 1857)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10020])
+	(cuad_pint [MUSEO_Class50001])
+	(cuad_tema [MUSEO_Class10038])
+	(Largo 110)
+	(NombreCuadro "Las espigadoras")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50001] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Jean-François Millet"))
+
+([MUSEO_Class50002] of  Cuadro
+
+	(Alto 102)
+	(A%C3%B1o 1882)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10022])
+	(cuad_pint [MUSEO_Class50003])
+	(cuad_tema [MUSEO_Class10036])
+	(Largo 76)
+	(NombreCuadro "Monarcas caidos")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50003] of  Pintor
+
+	(Nacionalidad "Americana")
+	(NombrePintor "William Bliss Baker"))
+
+([MUSEO_Class50004] of  Cuadro
+
+	(Alto 130)
+	(A%C3%B1o 1914)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class10008])
+	(cuad_est [MUSEO_Class6])
+	(cuad_pint [MUSEO_Class50005])
+	(cuad_tema [MUSEO_Class10032])
+	(Largo 130)
+	(NombreCuadro "Fuga")
+	(Relevancia 1)
+	(Sala 1))
+
+([MUSEO_Class50005] of  Pintor
+
+	(Nacionalidad "Rusa")
+	(NombrePintor "Vasili Kandinski"))
+
+([MUSEO_Class50006] of  Cuadro
+
+	(Alto 91)
+	(A%C3%B1o 1925)
+	(Complejidad 3)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class10029])
+	(cuad_pint [MUSEO_Class50007])
+	(cuad_tema [MUSEO_Class10040])
+	(Largo 61)
+	(NombreCuadro "Grupo de cuatro desnudos")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50007] of  Pintor
+
+	(Nacionalidad "Polaca")
+	(NombrePintor "Tamara de Lempicka"))
+
+([MUSEO_Class50008] of  Cuadro
+
+	(Alto 359)
+	(A%C3%B1o 1855)
+	(Complejidad 4)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10020])
+	(cuad_pint [MUSEO_Class50009])
+	(cuad_tema [MUSEO_Class10038])
+	(Largo 598)
+	(NombreCuadro "El taller del pintor")
+	(Relevancia 4)
+	(Sala 1))
+
+([MUSEO_Class50009] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Gustave Courbet"))
+
+([MUSEO_Class50010] of  Cuadro
+
+	(Alto 106)
+	(A%C3%B1o 1911)
+	(Complejidad 3)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class6])
+	(cuad_pint [MUSEO_Class50011])
+	(cuad_tema [MUSEO_Class10032])
+	(Largo 181)
+	(NombreCuadro "Los grandes caballos azules")
+	(Relevancia 3)
+	(Sala 1))
+
+([MUSEO_Class50011] of  Pintor
+
+	(Nacionalidad "Alemana")
+	(NombrePintor "Franz Marc"))
+
+([MUSEO_Class50012] of  Cuadro
+
+	(Alto 55)
+	(A%C3%B1o 1879)
+	(Complejidad 3)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10021])
+	(cuad_pint [MUSEO_Class50013])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 45)
+	(NombreCuadro "Lydia apoyada en sus brazos")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50013] of  Pintor
+
+	(Nacionalidad "Americana")
+	(NombrePintor "Mary Cassatt"))
+
+([MUSEO_Class50014] of  Cuadro
+
+	(Alto 196)
+	(A%C3%B1o 1912)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class10025])
+	(cuad_pint [MUSEO_Class50015])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 115)
+	(NombreCuadro "Hombre en un balcón")
+	(Relevancia 1)
+	(Sala 1))
+
+([MUSEO_Class50015] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Albert Gleizes"))
+
+([MUSEO_Class50016] of  Cuadro
+
+	(Alto 65)
+	(A%C3%B1o 1890)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10026])
+	(cuad_pint [MUSEO_Class50017])
+	(cuad_tema [MUSEO_Class10038])
+	(Largo 32)
+	(NombreCuadro "Mañana, Interior")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50017] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Maximilien Luce"))
+
+([MUSEO_Class50018] of  Cuadro
+
+	(Alto 38)
+	(A%C3%B1o 1925)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class10008])
+	(cuad_est [MUSEO_Class10029])
+	(cuad_pint [MUSEO_Class50007])
+	(cuad_tema [MUSEO_Class10040])
+	(Largo 55)
+	(NombreCuadro "Desnudo en una terraza")
+	(Relevancia 1)
+	(Sala 1))
+
+([MUSEO_Class50020] of  Cuadro
+
+	(Alto 50)
+	(A%C3%B1o 1936)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class10008])
+	(cuad_est [MUSEO_Class10028])
+	(cuad_pint [MUSEO_Class50021])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 60)
+	(NombreCuadro "Lampara de filosofo")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50021] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Rene Madritte"))
+
+([MUSEO_Class50022] of  Cuadro
+
+	(Alto 54)
+	(A%C3%B1o 1887)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10023])
+	(cuad_pint [MUSEO_Class50023])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 45)
+	(NombreCuadro "Retrato de Vincent van Gogh")
+	(Relevancia 3))
+
+([MUSEO_Class50023] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Henri de Toulouse-Lautrec"))
+
+([MUSEO_Class50024] of  Cuadro
+
+	(Alto 67)
+	(A%C3%B1o 1889)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10023])
+	(cuad_pint [MUSEO_Class50023])
+	(cuad_tema [MUSEO_Class10040])
+	(Largo 54)
+	(NombreCuadro "Pelirroja, El Baño")
+	(Relevancia 1)
+	(Sala 1))
+
+([MUSEO_Class50025] of  Cuadro
+
+	(Alto 42)
+	(A%C3%B1o 1887)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10026])
+	(cuad_pint [MUSEO_Class50026])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 34)
+	(NombreCuadro "Autoretrato")
+	(Relevancia 4)
+	(Sala 1))
+
+([MUSEO_Class50026] of  Pintor
+
+	(Nacionalidad "Francesa")
+	(NombrePintor "Vincent van Gogh"))
+
+([MUSEO_Class50027] of  Cuadro
+
+	(Alto 46)
+	(A%C3%B1o 1917)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class10024])
+	(cuad_pint [MUSEO_Class50028])
+	(cuad_tema [MUSEO_Class8])
+	(Largo 30)
+	(NombreCuadro "Mujer sentada con rodilla levantada")
+	(Relevancia 1)
+	(Sala 1))
+
+([MUSEO_Class50028] of  Pintor
+
+	(Nacionalidad "Austriaco")
+	(NombrePintor "Egon Schiele"))
+
+([MUSEO_Class50029] of  Cuadro
+
+	(Alto 196)
+	(A%C3%B1o 1913)
+	(Complejidad 4)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class10024])
+	(cuad_pint [MUSEO_Class50011])
+	(cuad_tema [MUSEO_Class10032])
+	(Largo 226)
+	(NombreCuadro "El destino de los animales")
+	(Relevancia 3)
+	(Sala 1))
+
+([MUSEO_Class50030] of  Cuadro
+
+	(Alto 91)
+	(A%C3%B1o 1838)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10021])
+	(cuad_pint [MUSEO_Class50031])
+	(cuad_tema [MUSEO_Class10036])
+	(Largo 122)
+	(NombreCuadro "El luchador temerario")
+	(Relevancia 3)
+	(Sala 1))
+
+([MUSEO_Class50031] of  Pintor
+
+	(Nacionalidad "Inglesa")
+	(NombrePintor "JMW Turner"))
+
+([MUSEO_Class50032] of  Cuadro
+
+	(Alto 244)
+	(A%C3%B1o 1907)
+	(Complejidad 3)
+	(cuad_ep [MUSEO_Class4])
+	(cuad_est [MUSEO_Class10025])
+	(cuad_pint [MUSEO_Class50033])
+	(cuad_tema [MUSEO_Class10040])
+	(Largo 234)
+	(NombreCuadro "Las Senoritas de Avignon")
+	(Relevancia 5)
+	(Sala 1))
+
+([MUSEO_Class50033] of  Pintor
+
+	(Nacionalidad "Espanola")
+	(NombrePintor "Pablo Picasso"))
+
+([MUSEO_Class50034] of  Cuadro
+
+	(Alto 54)
+	(A%C3%B1o 1928)
+	(Complejidad 1)
+	(cuad_ep [MUSEO_Class10008])
+	(cuad_est [MUSEO_Class10028])
+	(cuad_pint [MUSEO_Class50021])
+	(cuad_tema [MUSEO_Class10039])
+	(Largo 73)
+	(NombreCuadro "Los amantes")
+	(Relevancia 2)
+	(Sala 1))
+
+([MUSEO_Class50035] of  Cuadro
+
+	(Alto 51)
+	(A%C3%B1o 1882)
+	(Complejidad 2)
+	(cuad_ep [MUSEO_Class10006])
+	(cuad_est [MUSEO_Class10022])
+	(cuad_pint [MUSEO_Class50036])
+	(cuad_tema [MUSEO_Class10036])
+	(Largo 35)
+	(NombreCuadro "Dos arbustos florecientes y un trogon")
+	(Relevancia 1)
+	(Sala 1))
+
+([MUSEO_Class50036] of  Pintor
+
+	(Nacionalidad "Inglesa")
+	(NombrePintor "Marianne North"))
+
 ([MUSEO_Class6] of  Estilo
 
-	(est_cuad [MUSEO_Class0])
-	(est_pint [MUSEO_Class2])
 	(NombreEst "Expresionista"))
 
 ([MUSEO_Class8] of  Tematica
 
-	(NombreTem "Retrato")
-	(tem_cuad [MUSEO_Class0]))
+	(NombreTem "Retrato"))
 
 )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -967,18 +1152,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; A PARTIR DE AQUI CÓDIGO NUESTRO
-
-
-(defclass Valoracion 
-	(is-a USER)
-	(role concrete)
-	(slot cuadro
-		(type INSTANCE)
-		(create-accessor read-write))
-	(slot puntos 
-		(type INTEGER)
-		(create-accessor read-write))
-)
 
 
 (defmodule MAIN (export ?ALL))
@@ -1234,12 +1407,11 @@
 	=>
 	(bind $?Cuadros (find-all-instances ((?inst Cuadro)) TRUE))
 	(progn$ (?i ?Cuadros)
-		(printout t "Mis cojones en vinagre" crlf)
 		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0))
 	)
 )
 
-(defrule procesar-datos::puntosPitor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"
+(defrule procesar-datos::puntosPintor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"
 	(visita (pintoresPref $?PintoresFav))
 	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
 	?cuadroB <- (object (is-a Cuadro)(cuad_pint ?pintor))
@@ -1266,22 +1438,35 @@
 	=>
 	(bind $?vals (insert$ $?vals (+ (length$ $?vals) 1) ?v))
 	(modify ?l (valoraciones ?vals))
-	(focus imprimir-resultado)
 )
 
-;(defrule seleccion::ordenarLista
+(defrule seleccion::finalSeleccion 
+ 	(declare (salience -10))
+ 	=>
+ 	(focus imprimir-resultado)
+)
 
-;)
+(defrule seleccion::ordenarLista
+	(declare (salience -5))
+	(not (listaOrdenada))
+	?l <- (listaVal(valoraciones $?listaDesordenada))
+	=>
+	(bind $?listaOrdenada (create$))
+	(while (not (eq (length$ $?listaDesordenada) 0)) do 
+		;CALCULAMOS EL MÁXIMO DE LA LISTA DESORDENADA; LO QUITAMOS DE LA LISTA DESORDENADA; LO METEMOS EN LA LISTA ORDENADA
+
+	
+	)
+	
+)
 
 (defrule imprimir-resultado::imprimirListaValoraciones
 	?l <- (listaVal (valoraciones $?valoraciones))
-	(not (imprimido-resultado))
 	=>
 	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes: " crlf)
 	(progn$ (?val $?valoraciones)
 		(printout t (send ?val imprimir))
 	)
-	(assert (imprimido-resultado))
 )
 
 (defmessage-handler MAIN::Valoracion imprimir ()

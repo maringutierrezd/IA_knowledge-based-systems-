@@ -1,0 +1,28 @@
+Estructura de carpetas: 
+
+-CLIPS 
+   MUSEO.clp       (programa principal)
+
+-PROTEGE 
+   MUSEO-dot-input (input para generar diagrama Ontoviz para la ontologia)
+   museo.jpg       (diagrama ontoviz de la ontologia) 
+   MUSEO.pins      (fichero de instancias generado por protege) 
+   MUSEO.pont      (fichero de clases generado por protede)
+   MUSEO.pprj      (fichero de protege) 
+
+=================================================================================================
+Instrucciones para ejecutar programa principal. 
+	1.-Abrir CLIPSIDE
+	2.-Hacer (load) de MUSEO.clp
+	3.-(reset)
+	4.-(run) 
+=================================================================================================
+Que hace nuestro programa? 
+
+En primer lugar te hará un conjunto de preguntas: numero de visitantes, si hay niños, tiempo de visita, 
+preferencias (de estilos, autores, epocas, tematicas)...
+Una vez contestadas las preguntas le asignamos a cada cuadro del museo (actualmente 39) unos puntos. Para ello
+de momento solo estamos teniendo en cuenta las preferencias de la visita. Es decir, si el cuadro a valorar 
+tiene una tematica, autor, estilo o epoca que coincide con las indicadas por el usuario, el cuadro tendrá 50
+puntos más. 
+Finalmente, se imprimen todas las valoraciones ordenadas por puntos, de mayor a menor.

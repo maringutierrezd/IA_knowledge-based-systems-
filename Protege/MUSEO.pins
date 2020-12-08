@@ -1,4 +1,4 @@
-; Sun Dec 06 15:27:12 CET 2020
+; Tue Dec 08 16:11:04 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -7,7 +7,7 @@
 
 	(Alto 91)
 	(A%C3%B1o 1983)
-	(Complejidad 3)
+	(Complejidad 5476)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
 	(cuad_pint [MUSEO_Class2])
@@ -177,7 +177,7 @@
 
 	(Alto 77)
 	(A%C3%B1o 1503)
-	(Complejidad 3)
+	(Complejidad 2809)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10011])
 	(cuad_pint [MUSEO_Class10043])
@@ -201,7 +201,7 @@
 
 	(Alto 500)
 	(A%C3%B1o 1510)
-	(Complejidad 10)
+	(Complejidad 250000)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10011])
 	(cuad_pint [MUSEO_Class20001])
@@ -220,7 +220,7 @@
 
 	(Alto 80)
 	(A%C3%B1o 1434)
-	(Complejidad 3)
+	(Complejidad 3600)
 	(cuad_ep [MUSEO_Class10001])
 	(cuad_est [MUSEO_Class10010])
 	(cuad_pint [MUSEO_Class30001])
@@ -243,7 +243,7 @@
 
 	(Alto 121)
 	(A%C3%B1o 1604)
-	(Complejidad 3)
+	(Complejidad 11881)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10012])
 	(cuad_pint [MUSEO_Class40001])
@@ -262,7 +262,7 @@
 
 	(Alto 480)
 	(A%C3%B1o 1587)
-	(Complejidad 10)
+	(Complejidad 129600)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10012])
 	(cuad_pint [MUSEO_Class40001])
@@ -276,7 +276,7 @@
 
 	(Alto 47)
 	(A%C3%B1o 1665)
-	(Complejidad 6)
+	(Complejidad 1600)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10015])
 	(cuad_pint [MUSEO_Class40004])
@@ -295,7 +295,7 @@
 
 	(Alto 66)
 	(A%C3%B1o 1435)
-	(Complejidad 2)
+	(Complejidad 38442)
 	(cuad_ep [MUSEO_Class10001])
 	(cuad_est [MUSEO_Class10010])
 	(cuad_pint [MUSEO_Class30001])
@@ -309,7 +309,7 @@
 
 	(Alto 45)
 	(A%C3%B1o 1658)
-	(Complejidad 4)
+	(Complejidad 1681)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10015])
 	(cuad_pint [MUSEO_Class40004])
@@ -323,7 +323,7 @@
 
 	(Alto 318)
 	(A%C3%B1o 1656)
-	(Complejidad 10)
+	(Complejidad 276)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
 	(cuad_pint [MUSEO_Class40009])
@@ -342,7 +342,7 @@
 
 	(Alto 307)
 	(A%C3%B1o 1634)
-	(Complejidad 10)
+	(Complejidad 94249)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
 	(cuad_pint [MUSEO_Class40009])
@@ -360,7 +360,7 @@
 ([MUSEO_Class40012] of  Cuadro
 
 	(Alto 462)
-	(Complejidad 10)
+	(Complejidad 116281)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10016])
 	(cuad_pint [MUSEO_Class40011])
@@ -373,7 +373,7 @@
 
 	(Alto 291)
 	(A%C3%B1o 1603)
-	(Complejidad 8)
+	(Complejidad 43264)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10016])
 	(cuad_pint [MUSEO_Class40011])
@@ -387,7 +387,7 @@
 
 	(Alto 57)
 	(A%C3%B1o 1742)
-	(Complejidad 4)
+	(Complejidad 3249)
 	(cuad_ep [MUSEO_Class10004])
 	(cuad_est [MUSEO_Class10017])
 	(cuad_pint [MUSEO_Class40016])
@@ -406,7 +406,7 @@
 
 	(Alto 130)
 	(A%C3%B1o 1740)
-	(Complejidad 4)
+	(Complejidad 16900)
 	(cuad_ep [MUSEO_Class10004])
 	(cuad_est [MUSEO_Class10017])
 	(cuad_pint [MUSEO_Class40016])
@@ -419,7 +419,7 @@
 ([MUSEO_Class40018] of  Cuadro
 
 	(Alto 385)
-	(Complejidad 10)
+	(Complejidad 148225)
 	(cuad_ep [MUSEO_Class10005])
 	(cuad_est [MUSEO_Class10018])
 	(cuad_pint [MUSEO_Class40019])
@@ -438,7 +438,7 @@
 
 	(Alto 330)
 	(A%C3%B1o 1784)
-	(Complejidad 1)
+	(Complejidad 108900)
 	(cuad_ep [MUSEO_Class10005])
 	(cuad_est [MUSEO_Class10018])
 	(cuad_pint [MUSEO_Class40019])
@@ -456,7 +456,7 @@
 ([MUSEO_Class40023] of  Cuadro
 
 	(Alto 260)
-	(Complejidad 10)
+	(Complejidad 67600)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10009])
 	(cuad_pint [MUSEO_Class40022])
@@ -470,7 +470,7 @@
 
 	(Alto 392)
 	(A%C3%B1o 1827)
-	(Complejidad 2)
+	(Complejidad 153664)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10009])
 	(cuad_pint [MUSEO_Class40022])
@@ -484,7 +484,7 @@
 
 	(Alto 84)
 	(A%C3%B1o 1857)
-	(Complejidad 2)
+	(Complejidad 7056)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10020])
 	(cuad_pint [MUSEO_Class50001])
@@ -503,7 +503,7 @@
 
 	(Alto 102)
 	(A%C3%B1o 1882)
-	(Complejidad 2)
+	(Complejidad 5776)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10022])
 	(cuad_pint [MUSEO_Class50003])
@@ -522,7 +522,7 @@
 
 	(Alto 130)
 	(A%C3%B1o 1914)
-	(Complejidad 2)
+	(Complejidad 16900)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class6])
 	(cuad_pint [MUSEO_Class50005])
@@ -541,7 +541,7 @@
 
 	(Alto 91)
 	(A%C3%B1o 1925)
-	(Complejidad 3)
+	(Complejidad 3721)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10029])
 	(cuad_pint [MUSEO_Class50007])
@@ -560,7 +560,7 @@
 
 	(Alto 359)
 	(A%C3%B1o 1855)
-	(Complejidad 4)
+	(Complejidad 128881)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10020])
 	(cuad_pint [MUSEO_Class50009])
@@ -579,7 +579,7 @@
 
 	(Alto 106)
 	(A%C3%B1o 1911)
-	(Complejidad 3)
+	(Complejidad 11236)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
 	(cuad_pint [MUSEO_Class50011])
@@ -598,7 +598,7 @@
 
 	(Alto 55)
 	(A%C3%B1o 1879)
-	(Complejidad 3)
+	(Complejidad 2025)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10021])
 	(cuad_pint [MUSEO_Class50013])
@@ -617,7 +617,7 @@
 
 	(Alto 196)
 	(A%C3%B1o 1912)
-	(Complejidad 1)
+	(Complejidad 13225)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10025])
 	(cuad_pint [MUSEO_Class50015])
@@ -636,7 +636,7 @@
 
 	(Alto 65)
 	(A%C3%B1o 1890)
-	(Complejidad 2)
+	(Complejidad 1024)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10026])
 	(cuad_pint [MUSEO_Class50017])
@@ -655,7 +655,7 @@
 
 	(Alto 38)
 	(A%C3%B1o 1925)
-	(Complejidad 1)
+	(Complejidad 1444)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10029])
 	(cuad_pint [MUSEO_Class50007])
@@ -669,7 +669,7 @@
 
 	(Alto 50)
 	(A%C3%B1o 1936)
-	(Complejidad 1)
+	(Complejidad 2500)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10028])
 	(cuad_pint [MUSEO_Class50021])
@@ -688,7 +688,7 @@
 
 	(Alto 54)
 	(A%C3%B1o 1887)
-	(Complejidad 2)
+	(Complejidad 2025)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10023])
 	(cuad_pint [MUSEO_Class50023])
@@ -706,7 +706,7 @@
 
 	(Alto 67)
 	(A%C3%B1o 1889)
-	(Complejidad 1)
+	(Complejidad 2916)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10023])
 	(cuad_pint [MUSEO_Class50023])
@@ -720,7 +720,7 @@
 
 	(Alto 42)
 	(A%C3%B1o 1887)
-	(Complejidad 1)
+	(Complejidad 1156)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10026])
 	(cuad_pint [MUSEO_Class50026])
@@ -739,7 +739,7 @@
 
 	(Alto 46)
 	(A%C3%B1o 1917)
-	(Complejidad 1)
+	(Complejidad 900)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10024])
 	(cuad_pint [MUSEO_Class50028])
@@ -758,7 +758,7 @@
 
 	(Alto 196)
 	(A%C3%B1o 1913)
-	(Complejidad 4)
+	(Complejidad 38416)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10024])
 	(cuad_pint [MUSEO_Class50011])
@@ -772,7 +772,7 @@
 
 	(Alto 91)
 	(A%C3%B1o 1838)
-	(Complejidad 1)
+	(Complejidad 8281)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10021])
 	(cuad_pint [MUSEO_Class50031])
@@ -791,7 +791,7 @@
 
 	(Alto 244)
 	(A%C3%B1o 1907)
-	(Complejidad 3)
+	(Complejidad 54756)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10025])
 	(cuad_pint [MUSEO_Class50033])
@@ -810,7 +810,7 @@
 
 	(Alto 54)
 	(A%C3%B1o 1928)
-	(Complejidad 1)
+	(Complejidad 2916)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10028])
 	(cuad_pint [MUSEO_Class50021])
@@ -824,7 +824,7 @@
 
 	(Alto 51)
 	(A%C3%B1o 1882)
-	(Complejidad 2)
+	(Complejidad 1225)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10022])
 	(cuad_pint [MUSEO_Class50036])

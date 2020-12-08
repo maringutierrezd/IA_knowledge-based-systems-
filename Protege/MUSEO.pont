@@ -1,4 +1,4 @@
-; Sun Dec 06 15:27:12 CET 2020
+; Tue Dec 08 16:11:04 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -49,15 +49,15 @@
 ;+		(allowed-classes Estilo)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Conocimiento
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_pint
 ;+		(comment "Pintor asociado al cuadro")
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Conocimiento
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cuadro
 		(type INSTANCE)
@@ -82,14 +82,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cuad_tema
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Alto
 ;+		(comment "Los centímetros que tiene de alto un cuadro")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cuad_tema
+		(type INSTANCE)
+;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot NombreEp
@@ -113,13 +113,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(multislot ep_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
-		(create-accessor read-write))
 	(single-slot Tama%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ep_pint
+		(type INSTANCE)
+;+		(allowed-classes Pintor)
 		(create-accessor read-write))
 	(single-slot Num_dias
 		(type INTEGER)
@@ -173,11 +173,11 @@
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Complejidad
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Complejidad
+	(single-slot A%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -196,14 +196,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cuad_tema
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Alto
 ;+		(comment "Los centímetros que tiene de alto un cuadro")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cuad_tema
+		(type INSTANCE)
+;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala

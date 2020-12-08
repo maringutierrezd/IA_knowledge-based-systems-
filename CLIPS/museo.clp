@@ -1,4 +1,4 @@
-; Sun Dec 06 15:27:12 CET 2020
+; Tue Dec 08 16:19:39 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -22,6 +22,11 @@
 	(multislot pref_ep
 		(type INSTANCE)
 ;+		(allowed-classes Epoca)
+		(create-accessor read-write))
+	(single-slot tiempoEstimado
+;+		(comment "Minutos de tiempo de la vista")
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cuad_ep
 		(type INSTANCE)
@@ -49,15 +54,15 @@
 ;+		(allowed-classes Estilo)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Conocimiento
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_pint
 ;+		(comment "Pintor asociado al cuadro")
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Conocimiento
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cuadro
 		(type INSTANCE)
@@ -82,14 +87,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cuad_tema
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Alto
 ;+		(comment "Los centímetros que tiene de alto un cuadro")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cuad_tema
+		(type INSTANCE)
+;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot NombreEp
@@ -113,13 +118,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(multislot ep_pint
-		(type INSTANCE)
-;+		(allowed-classes Pintor)
-		(create-accessor read-write))
 	(single-slot Tama%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ep_pint
+		(type INSTANCE)
+;+		(allowed-classes Pintor)
 		(create-accessor read-write))
 	(single-slot Num_dias
 		(type INTEGER)
@@ -173,11 +178,11 @@
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Complejidad
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Complejidad
+	(single-slot A%C3%B1o
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -196,14 +201,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cuad_tema
-		(type INSTANCE)
-;+		(allowed-classes Tematica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Alto
 ;+		(comment "Los centímetros que tiene de alto un cuadro")
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cuad_tema
+		(type INSTANCE)
+;+		(allowed-classes Tematica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -263,8 +268,12 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tiempoEstimado
+;+		(comment "Minutos de tiempo de la vista")
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1402,13 +1411,53 @@
 )
 
 
-(defrule procesar-datos::instanciarValoraciones "Valoramos todos cuadros con 0 ptos"
+(defrule procesar-datos::instanciarValoraciones "Valoramos todos cuadros con 0 ptos y calculamos su tiempo estimado de visualizacion"
 	(declare (salience 10))
+	(visita (tamano ?tam) (ninos ?nin))
 	=>
 	(bind $?Cuadros (find-all-instances ((?inst Cuadro)) TRUE))
 	(progn$ (?i ?Cuadros)
-		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0))
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	; 		TODO: SEGUIR CALCULO TIEMPO ESTIMADO         ;
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+		;AQUI CALCULAMOS EL TIEMPO ESTIMADO PARA VER CADA CUADRO EN FUNCION DE LA VISITA
+		(bind ?complejCuadro (send ?i get-Complejidad))
+		(if (<= ?tam 3) then 
+			;COMPLJIDAD 1
+			(if (< ?complejCuadro 83933) then (bind ?tiempoE 4))
+			;COMPLEJIDAD 2
+			(if (and (>= ?complejCuadro 83933) (< ?complejCuadro 166966)) then (bind ?tiempoE 6))
+			;COMPLEJIDAD 3 >166966
+			(if (>= ?complejCuadro 166966) then (bind ?tiempoE 8)) 
+		)
+		(if (and (> ?tam 3) (<= ?tam 10)) then 
+			;COMPLJIDAD 1
+			(if (< ?complejCuadro 83933) then (bind ?tiempoE 7))
+			;COMPLEJIDAD 2
+			(if (and (>= ?complejCuadro 83933) (< ?complejCuadro 166966)) then (bind ?tiempoE 9))
+			;COMPLEJIDAD 3 >166966
+			(if (>= ?complejCuadro 166966) then (bind ?tiempoE 11)) 
+		)
+		(if (> ?tam 10) then 
+			;COMPLJIDAD 1
+			(if (< ?complejCuadro 83933) then (bind ?tiempoE 12))
+			;COMPLEJIDAD 2
+			(if (and (>= ?complejCuadro 83933) (< ?complejCuadro 166966)) then (bind ?tiempoE 14))
+			;COMPLEJIDAD 3 >166966
+			(if (>= ?complejCuadro 166966) then (bind ?tiempoE 16)) 
+		)
+		(printout t "El tiempo estimado es " ?tiempoE " porque la complejidad es " ?complejCuadro " y el tamano es  " ?tam crlf)
+		;SI HAY NIÑOS MULTIPLICAMOS EL RESULTADO POR 0.85
+		(if (= ?nin 1) then
+			(bind ?tiempoE (* ?tiempoE 0.85)) ;DEJARA METER FLOAT A INTEGER
+		)
+
+			
+		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0)(tiempoEstimado ?tiempoE))
 	)
+
+
 )
 
 (defrule procesar-datos::puntosPintor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"

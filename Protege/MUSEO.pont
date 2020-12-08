@@ -1,4 +1,4 @@
-; Tue Dec 08 16:11:04 CET 2020
+; Tue Dec 08 16:19:39 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -22,6 +22,11 @@
 	(multislot pref_ep
 		(type INSTANCE)
 ;+		(allowed-classes Epoca)
+		(create-accessor read-write))
+	(single-slot tiempoEstimado
+;+		(comment "Minutos de tiempo de la vista")
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cuad_ep
 		(type INSTANCE)
@@ -262,5 +267,10 @@
 	(single-slot cuadro
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tiempoEstimado
+;+		(comment "Minutos de tiempo de la vista")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))

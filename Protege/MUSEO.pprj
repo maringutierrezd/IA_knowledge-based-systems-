@@ -1,4 +1,4 @@
-; Tue Dec 08 16:39:23 CET 2020
+; Tue Dec 08 17:02:51 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -71,7 +71,7 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_439127_Class3] of  Map
+([KB_082106_Class3] of  Map
 )
 
 ([KB_443340_Class0] of  String
@@ -522,13 +522,13 @@
 
 ([MUSEO_ProjectKB_Class37] of  String
 
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
+	(name "Estilo")
+	(string_value "NombreEst"))
 
 ([MUSEO_ProjectKB_Class38] of  String
 
-	(name "Estilo")
-	(string_value "NombreEst"))
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
 
 ([MUSEO_ProjectKB_Class39] of  String
 
@@ -547,13 +547,13 @@
 
 ([MUSEO_ProjectKB_Class42] of  String
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
 ([MUSEO_ProjectKB_Class43] of  String
 
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([MUSEO_ProjectKB_Class44] of  String
 
@@ -660,8 +660,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

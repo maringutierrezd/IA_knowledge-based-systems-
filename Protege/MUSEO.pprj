@@ -71,6 +71,9 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
+([KB_082106_Class3] of  Map
+)
+
 ([KB_443340_Class0] of  String
 
 	(name "factory_class_name")
@@ -507,9 +510,6 @@
 ([KB_443340_Class98] of  Property_List
 
 	(properties [MUSEO_ProjectKB_Class110]))
-
-([KB_941217_Class3] of  Map
-)
 
 ([LAYOUT_PROPERTIES] of  Property_List
 

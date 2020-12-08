@@ -306,11 +306,16 @@
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
+; Tue Dec 08 16:19:39 CET 2020
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
 ([MUSEO_Class0] of  Cuadro
 
 	(Alto 91)
 	(A%C3%B1o 1983)
-	(Complejidad 3)
+	(Complejidad 5476)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
 	(cuad_pint [MUSEO_Class2])
@@ -318,7 +323,7 @@
 	(Largo 74)
 	(NombreCuadro "El Grito")
 	(Relevancia 5)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class10000] of  Epoca
 
@@ -480,7 +485,7 @@
 
 	(Alto 77)
 	(A%C3%B1o 1503)
-	(Complejidad 3)
+	(Complejidad 2809)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10011])
 	(cuad_pint [MUSEO_Class10043])
@@ -504,7 +509,7 @@
 
 	(Alto 500)
 	(A%C3%B1o 1510)
-	(Complejidad 10)
+	(Complejidad 250000)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10011])
 	(cuad_pint [MUSEO_Class20001])
@@ -512,7 +517,7 @@
 	(Largo 770)
 	(NombreCuadro "La escuela de Atenas")
 	(Relevancia 5)
-	(Sala 3))
+	(Sala 5))
 
 ([MUSEO_Class20001] of  Pintor
 
@@ -523,7 +528,7 @@
 
 	(Alto 80)
 	(A%C3%B1o 1434)
-	(Complejidad 3)
+	(Complejidad 3600)
 	(cuad_ep [MUSEO_Class10001])
 	(cuad_est [MUSEO_Class10010])
 	(cuad_pint [MUSEO_Class30001])
@@ -546,7 +551,7 @@
 
 	(Alto 121)
 	(A%C3%B1o 1604)
-	(Complejidad 3)
+	(Complejidad 11881)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10012])
 	(cuad_pint [MUSEO_Class40001])
@@ -554,7 +559,7 @@
 	(Largo 109)
 	(NombreCuadro "Vista de Toledo")
 	(Relevancia 4)
-	(Sala 5))
+	(Sala 1))
 
 ([MUSEO_Class40001] of  Pintor
 
@@ -565,7 +570,7 @@
 
 	(Alto 480)
 	(A%C3%B1o 1587)
-	(Complejidad 10)
+	(Complejidad 129600)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10012])
 	(cuad_pint [MUSEO_Class40001])
@@ -573,13 +578,13 @@
 	(Largo 360)
 	(NombreCuadro "El entierro del conde de Orgaz")
 	(Relevancia 1)
-	(Sala 4))
+	(Sala 5))
 
 ([MUSEO_Class40003] of  Cuadro
 
 	(Alto 47)
 	(A%C3%B1o 1665)
-	(Complejidad 6)
+	(Complejidad 1600)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10015])
 	(cuad_pint [MUSEO_Class40004])
@@ -598,7 +603,7 @@
 
 	(Alto 66)
 	(A%C3%B1o 1435)
-	(Complejidad 2)
+	(Complejidad 38442)
 	(cuad_ep [MUSEO_Class10001])
 	(cuad_est [MUSEO_Class10010])
 	(cuad_pint [MUSEO_Class30001])
@@ -606,13 +611,13 @@
 	(Largo 62)
 	(NombreCuadro "Virgen del canciller Rolin")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class40006] of  Cuadro
 
 	(Alto 45)
 	(A%C3%B1o 1658)
-	(Complejidad 4)
+	(Complejidad 1681)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10015])
 	(cuad_pint [MUSEO_Class40004])
@@ -626,7 +631,7 @@
 
 	(Alto 318)
 	(A%C3%B1o 1656)
-	(Complejidad 10)
+	(Complejidad 76176)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
 	(cuad_pint [MUSEO_Class40009])
@@ -645,7 +650,7 @@
 
 	(Alto 307)
 	(A%C3%B1o 1634)
-	(Complejidad 10)
+	(Complejidad 94249)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
 	(cuad_pint [MUSEO_Class40009])
@@ -653,7 +658,7 @@
 	(Largo 367)
 	(NombreCuadro "La rendición de Breda")
 	(Relevancia 5)
-	(Sala 2))
+	(Sala 5))
 
 ([MUSEO_Class40011] of  Pintor
 
@@ -663,20 +668,21 @@
 ([MUSEO_Class40012] of  Cuadro
 
 	(Alto 462)
-	(Complejidad 10)
+	(Complejidad 116281)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10016])
 	(cuad_pint [MUSEO_Class40011])
 	(cuad_tema [MUSEO_Class10031])
 	(Largo 341)
 	(NombreCuadro "La elevación de la cruz")
-	(Relevancia 3))
+	(Relevancia 3)
+	(Sala 4))
 
 ([MUSEO_Class40013] of  Cuadro
 
 	(Alto 291)
 	(A%C3%B1o 1603)
-	(Complejidad 8)
+	(Complejidad 43264)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10016])
 	(cuad_pint [MUSEO_Class40011])
@@ -684,13 +690,13 @@
 	(Largo 208)
 	(NombreCuadro "Retrato ecuestre del duque de Lerma")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class40015] of  Cuadro
 
 	(Alto 57)
 	(A%C3%B1o 1742)
-	(Complejidad 4)
+	(Complejidad 3249)
 	(cuad_ep [MUSEO_Class10004])
 	(cuad_est [MUSEO_Class10017])
 	(cuad_pint [MUSEO_Class40016])
@@ -698,7 +704,7 @@
 	(Largo 73)
 	(NombreCuadro "Diana después del baño")
 	(Relevancia 2)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class40016] of  Pintor
 
@@ -709,7 +715,7 @@
 
 	(Alto 130)
 	(A%C3%B1o 1740)
-	(Complejidad 4)
+	(Complejidad 16900)
 	(cuad_ep [MUSEO_Class10004])
 	(cuad_est [MUSEO_Class10017])
 	(cuad_pint [MUSEO_Class40016])
@@ -717,12 +723,12 @@
 	(Largo 162)
 	(NombreCuadro "El triunfo de Venus")
 	(Relevancia 2)
-	(Sala 3))
+	(Sala 4))
 
 ([MUSEO_Class40018] of  Cuadro
 
 	(Alto 385)
-	(Complejidad 10)
+	(Complejidad 148225)
 	(cuad_ep [MUSEO_Class10005])
 	(cuad_est [MUSEO_Class10018])
 	(cuad_pint [MUSEO_Class40019])
@@ -730,7 +736,7 @@
 	(Largo 522)
 	(NombreCuadro "El rapto de las sabinas")
 	(Relevancia 5)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class40019] of  Pintor
 
@@ -741,7 +747,7 @@
 
 	(Alto 330)
 	(A%C3%B1o 1784)
-	(Complejidad 1)
+	(Complejidad 108900)
 	(cuad_ep [MUSEO_Class10005])
 	(cuad_est [MUSEO_Class10018])
 	(cuad_pint [MUSEO_Class40019])
@@ -749,7 +755,7 @@
 	(Largo 425)
 	(NombreCuadro "Juramento de los Horacios")
 	(Relevancia 5)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class40022] of  Pintor
 
@@ -759,7 +765,7 @@
 ([MUSEO_Class40023] of  Cuadro
 
 	(Alto 260)
-	(Complejidad 10)
+	(Complejidad 67600)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10009])
 	(cuad_pint [MUSEO_Class40022])
@@ -767,13 +773,13 @@
 	(Largo 325)
 	(NombreCuadro "La Libertad guiando al pueblo")
 	(Relevancia 5)
-	(Sala 3))
+	(Sala 4))
 
 ([MUSEO_Class40024] of  Cuadro
 
 	(Alto 392)
 	(A%C3%B1o 1827)
-	(Complejidad 2)
+	(Complejidad 153664)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10009])
 	(cuad_pint [MUSEO_Class40022])
@@ -781,13 +787,13 @@
 	(Largo 496)
 	(NombreCuadro "La muerte de Sardanapalo")
 	(Relevancia 2)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class50000] of  Cuadro
 
 	(Alto 84)
 	(A%C3%B1o 1857)
-	(Complejidad 2)
+	(Complejidad 7056)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10020])
 	(cuad_pint [MUSEO_Class50001])
@@ -795,7 +801,7 @@
 	(Largo 110)
 	(NombreCuadro "Las espigadoras")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50001] of  Pintor
 
@@ -806,7 +812,7 @@
 
 	(Alto 102)
 	(A%C3%B1o 1882)
-	(Complejidad 2)
+	(Complejidad 5776)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10022])
 	(cuad_pint [MUSEO_Class50003])
@@ -825,7 +831,7 @@
 
 	(Alto 130)
 	(A%C3%B1o 1914)
-	(Complejidad 2)
+	(Complejidad 16900)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class6])
 	(cuad_pint [MUSEO_Class50005])
@@ -833,7 +839,7 @@
 	(Largo 130)
 	(NombreCuadro "Fuga")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class50005] of  Pintor
 
@@ -844,7 +850,7 @@
 
 	(Alto 91)
 	(A%C3%B1o 1925)
-	(Complejidad 3)
+	(Complejidad 3721)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10029])
 	(cuad_pint [MUSEO_Class50007])
@@ -852,7 +858,7 @@
 	(Largo 61)
 	(NombreCuadro "Grupo de cuatro desnudos")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50007] of  Pintor
 
@@ -863,7 +869,7 @@
 
 	(Alto 359)
 	(A%C3%B1o 1855)
-	(Complejidad 4)
+	(Complejidad 128881)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10020])
 	(cuad_pint [MUSEO_Class50009])
@@ -871,7 +877,7 @@
 	(Largo 598)
 	(NombreCuadro "El taller del pintor")
 	(Relevancia 4)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50009] of  Pintor
 
@@ -882,7 +888,7 @@
 
 	(Alto 106)
 	(A%C3%B1o 1911)
-	(Complejidad 3)
+	(Complejidad 11236)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
 	(cuad_pint [MUSEO_Class50011])
@@ -890,7 +896,7 @@
 	(Largo 181)
 	(NombreCuadro "Los grandes caballos azules")
 	(Relevancia 3)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class50011] of  Pintor
 
@@ -901,7 +907,7 @@
 
 	(Alto 55)
 	(A%C3%B1o 1879)
-	(Complejidad 3)
+	(Complejidad 2025)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10021])
 	(cuad_pint [MUSEO_Class50013])
@@ -909,7 +915,7 @@
 	(Largo 45)
 	(NombreCuadro "Lydia apoyada en sus brazos")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50013] of  Pintor
 
@@ -920,7 +926,7 @@
 
 	(Alto 196)
 	(A%C3%B1o 1912)
-	(Complejidad 1)
+	(Complejidad 13225)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10025])
 	(cuad_pint [MUSEO_Class50015])
@@ -928,7 +934,7 @@
 	(Largo 115)
 	(NombreCuadro "Hombre en un balcón")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50015] of  Pintor
 
@@ -939,7 +945,7 @@
 
 	(Alto 65)
 	(A%C3%B1o 1890)
-	(Complejidad 2)
+	(Complejidad 1024)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10026])
 	(cuad_pint [MUSEO_Class50017])
@@ -947,7 +953,7 @@
 	(Largo 32)
 	(NombreCuadro "Mañana, Interior")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50017] of  Pintor
 
@@ -958,7 +964,7 @@
 
 	(Alto 38)
 	(A%C3%B1o 1925)
-	(Complejidad 1)
+	(Complejidad 1444)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10029])
 	(cuad_pint [MUSEO_Class50007])
@@ -966,13 +972,13 @@
 	(Largo 55)
 	(NombreCuadro "Desnudo en una terraza")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50020] of  Cuadro
 
 	(Alto 50)
 	(A%C3%B1o 1936)
-	(Complejidad 1)
+	(Complejidad 2500)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10028])
 	(cuad_pint [MUSEO_Class50021])
@@ -980,7 +986,7 @@
 	(Largo 60)
 	(NombreCuadro "Lampara de filosofo")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50021] of  Pintor
 
@@ -991,14 +997,15 @@
 
 	(Alto 54)
 	(A%C3%B1o 1887)
-	(Complejidad 2)
+	(Complejidad 2025)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10023])
 	(cuad_pint [MUSEO_Class50023])
 	(cuad_tema [MUSEO_Class8])
 	(Largo 45)
 	(NombreCuadro "Retrato de Vincent van Gogh")
-	(Relevancia 3))
+	(Relevancia 3)
+	(Sala 3))
 
 ([MUSEO_Class50023] of  Pintor
 
@@ -1009,7 +1016,7 @@
 
 	(Alto 67)
 	(A%C3%B1o 1889)
-	(Complejidad 1)
+	(Complejidad 2916)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10023])
 	(cuad_pint [MUSEO_Class50023])
@@ -1017,13 +1024,13 @@
 	(Largo 54)
 	(NombreCuadro "Pelirroja, El Baño")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50025] of  Cuadro
 
 	(Alto 42)
 	(A%C3%B1o 1887)
-	(Complejidad 1)
+	(Complejidad 1156)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10026])
 	(cuad_pint [MUSEO_Class50026])
@@ -1031,7 +1038,7 @@
 	(Largo 34)
 	(NombreCuadro "Autoretrato")
 	(Relevancia 4)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50026] of  Pintor
 
@@ -1042,7 +1049,7 @@
 
 	(Alto 46)
 	(A%C3%B1o 1917)
-	(Complejidad 1)
+	(Complejidad 900)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10024])
 	(cuad_pint [MUSEO_Class50028])
@@ -1050,7 +1057,7 @@
 	(Largo 30)
 	(NombreCuadro "Mujer sentada con rodilla levantada")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50028] of  Pintor
 
@@ -1061,7 +1068,7 @@
 
 	(Alto 196)
 	(A%C3%B1o 1913)
-	(Complejidad 4)
+	(Complejidad 38416)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10024])
 	(cuad_pint [MUSEO_Class50011])
@@ -1069,13 +1076,13 @@
 	(Largo 226)
 	(NombreCuadro "El destino de los animales")
 	(Relevancia 3)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class50030] of  Cuadro
 
 	(Alto 91)
 	(A%C3%B1o 1838)
-	(Complejidad 1)
+	(Complejidad 8281)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10021])
 	(cuad_pint [MUSEO_Class50031])
@@ -1094,7 +1101,7 @@
 
 	(Alto 244)
 	(A%C3%B1o 1907)
-	(Complejidad 3)
+	(Complejidad 54756)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10025])
 	(cuad_pint [MUSEO_Class50033])
@@ -1102,7 +1109,7 @@
 	(Largo 234)
 	(NombreCuadro "Las Senoritas de Avignon")
 	(Relevancia 5)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50033] of  Pintor
 
@@ -1113,7 +1120,7 @@
 
 	(Alto 54)
 	(A%C3%B1o 1928)
-	(Complejidad 1)
+	(Complejidad 2916)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10028])
 	(cuad_pint [MUSEO_Class50021])
@@ -1121,13 +1128,13 @@
 	(Largo 73)
 	(NombreCuadro "Los amantes")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50035] of  Cuadro
 
 	(Alto 51)
 	(A%C3%B1o 1882)
-	(Complejidad 2)
+	(Complejidad 1225)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10022])
 	(cuad_pint [MUSEO_Class50036])
@@ -1149,6 +1156,7 @@
 ([MUSEO_Class8] of  Tematica
 
 	(NombreTem "Retrato"))
+
 
 )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1261,7 +1269,7 @@
 	?t <- (visita (tiempoTotal ?tiempo))
 	(test (< ?tiempo 0))
 	=>
-	(bind ?tiempo (* ?horas ?dias))
+	(bind ?tiempo (*(* ?horas ?dias) 60) )
 	(modify ?t (tiempoTotal ?tiempo))
 
 	(focus procesar-datos)
@@ -1417,10 +1425,6 @@
 	=>
 	(bind $?Cuadros (find-all-instances ((?inst Cuadro)) TRUE))
 	(progn$ (?i ?Cuadros)
-	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	; 		TODO: SEGUIR CALCULO TIEMPO ESTIMADO         ;
-	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 		;AQUI CALCULAMOS EL TIEMPO ESTIMADO PARA VER CADA CUADRO EN FUNCION DE LA VISITA
 		(bind ?complejCuadro (send ?i get-Complejidad))
 		(if (<= ?tam 3) then 
@@ -1447,13 +1451,10 @@
 			;COMPLEJIDAD 3 >166966
 			(if (>= ?complejCuadro 166966) then (bind ?tiempoE 16)) 
 		)
-		(printout t "El tiempo estimado es " ?tiempoE " porque la complejidad es " ?complejCuadro " y el tamano es  " ?tam crlf)
 		;SI HAY NIÑOS MULTIPLICAMOS EL RESULTADO POR 0.85
 		(if (= ?nin 1) then
 			(bind ?tiempoE (* ?tiempoE 0.85)) ;DEJARA METER FLOAT A INTEGER
-		)
-
-			
+		)			
 		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0)(tiempoEstimado ?tiempoE))
 	)
 
@@ -1532,6 +1533,7 @@
 )
 
 (defrule seleccion::rellenarLista
+	(not (ordenacionListaHecha))
 	?v <- (object (is-a Valoracion))
 	?l <- (listaVal (valoraciones $?vals))
 	(test(not(member$ ?v $?vals)))
@@ -1540,19 +1542,16 @@
 	(modify ?l (valoraciones ?vals))
 )
 
-(defrule seleccion::finalSeleccion 
- 	(declare (salience -10))
- 	=>
- 	(focus imprimir-resultado)
-)
-
 (defrule seleccion::ordenarLista
 	(declare (salience -5))
 	(not (ordenacionListaHecha))
+	(visita(tiempoTotal ?tiempoTotal))
 	?l <- (listaVal(valoraciones $?listaDesordenada))
 	=>
 	(bind $?listaOrdenada (create$))
-	(while (not (eq (length$ $?listaDesordenada) 0)) do 
+	(bind ?tiempoHastaAhora 0)
+	(bind ?tiempoTotal (+ ?tiempoTotal 30)) ;LE SUMO 30 MINUTOS AL TIEMPO TOTAL DE LA VISITA POR SI ACABAN ANTES CON LAS RECOMENDACIONES
+	(while (and (not (eq (length$ $?listaDesordenada) 0)) (< ?tiempoHastaAhora ?tiempoTotal)) do 
 		;CALCULAMOS EL MAXIMO 
 		(bind ?max -1)
 		(progn$ (?i $?listaDesordenada)
@@ -1562,6 +1561,9 @@
 				(bind ?valoracion ?i)
 			)
 		)
+		(printout t "El tiempo hasta ahora es " ?tiempoHastaAhora crlf)
+		(printout t "El tiempo total es " ?tiempoTotal crlf)
+		(bind ?tiempoHastaAhora (+ ?tiempoHastaAhora (send ?valoracion get-tiempoEstimado)))
 		;LO QUITAMOS DE LA LISTA DESORDENADA
 		(bind $?listaDesordenada (delete-member$ $?listaDesordenada ?valoracion))
 		;LO METEMOS EN LA LISTA ORDENADA
@@ -1570,13 +1572,21 @@
 	;HACEMOS ASSERT PARA QUE NO SE VUELVA A EJECUTAR
 	(assert (ordenacionListaHecha))
 	;PONEMOS LA LISTA ORDENADA EN LISTA VAL
-	(modify ?l (valoraciones $?listaOrdenada))
+	(modify ?l (valoraciones ?listaOrdenada))
+)
+
+(defrule seleccion::finalSeleccion 
+ 	(declare (salience -10))
+ 	=>
+ 	(focus imprimir-resultado)
 )
 
 (defrule imprimir-resultado::imprimirListaValoraciones
 	?l <- (listaVal (valoraciones $?valoraciones))
 	=>
 	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes: " crlf)
+	(printout t " " crlf)
+	(printout t "==========================================================================================" crlf)
 	(progn$ (?val $?valoraciones)
 		(printout t (send ?val imprimir))
 	)
@@ -1584,7 +1594,9 @@
 
 (defmessage-handler MAIN::Valoracion imprimir ()
 	(printout t "Te recomendamos el siguiente cuadro con una puntuacion de: " ?self:puntos " puntos " crlf)
+	(printout t "Tiempo estimado para ver la obra: " ?self:tiempoEstimado " minutos " crlf)
 	(printout t (send ?self:cuadro imprimir))
+	(printout t "==========================================================================================" crlf)
 )
 
 

@@ -15,7 +15,7 @@
 	(Largo 74)
 	(NombreCuadro "El Grito")
 	(Relevancia 5)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class10000] of  Epoca
 
@@ -209,7 +209,7 @@
 	(Largo 770)
 	(NombreCuadro "La escuela de Atenas")
 	(Relevancia 5)
-	(Sala 3))
+	(Sala 5))
 
 ([MUSEO_Class20001] of  Pintor
 
@@ -251,7 +251,7 @@
 	(Largo 109)
 	(NombreCuadro "Vista de Toledo")
 	(Relevancia 4)
-	(Sala 5))
+	(Sala 1))
 
 ([MUSEO_Class40001] of  Pintor
 
@@ -270,7 +270,7 @@
 	(Largo 360)
 	(NombreCuadro "El entierro del conde de Orgaz")
 	(Relevancia 1)
-	(Sala 4))
+	(Sala 5))
 
 ([MUSEO_Class40003] of  Cuadro
 
@@ -303,7 +303,7 @@
 	(Largo 62)
 	(NombreCuadro "Virgen del canciller Rolin")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class40006] of  Cuadro
 
@@ -323,7 +323,7 @@
 
 	(Alto 318)
 	(A%C3%B1o 1656)
-	(Complejidad 276)
+	(Complejidad 76176)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
 	(cuad_pint [MUSEO_Class40009])
@@ -350,7 +350,7 @@
 	(Largo 367)
 	(NombreCuadro "La rendición de Breda")
 	(Relevancia 5)
-	(Sala 2))
+	(Sala 5))
 
 ([MUSEO_Class40011] of  Pintor
 
@@ -367,7 +367,8 @@
 	(cuad_tema [MUSEO_Class10031])
 	(Largo 341)
 	(NombreCuadro "La elevación de la cruz")
-	(Relevancia 3))
+	(Relevancia 3)
+	(Sala 4))
 
 ([MUSEO_Class40013] of  Cuadro
 
@@ -381,7 +382,7 @@
 	(Largo 208)
 	(NombreCuadro "Retrato ecuestre del duque de Lerma")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class40015] of  Cuadro
 
@@ -395,7 +396,7 @@
 	(Largo 73)
 	(NombreCuadro "Diana después del baño")
 	(Relevancia 2)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class40016] of  Pintor
 
@@ -414,7 +415,7 @@
 	(Largo 162)
 	(NombreCuadro "El triunfo de Venus")
 	(Relevancia 2)
-	(Sala 3))
+	(Sala 4))
 
 ([MUSEO_Class40018] of  Cuadro
 
@@ -427,7 +428,7 @@
 	(Largo 522)
 	(NombreCuadro "El rapto de las sabinas")
 	(Relevancia 5)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class40019] of  Pintor
 
@@ -446,7 +447,7 @@
 	(Largo 425)
 	(NombreCuadro "Juramento de los Horacios")
 	(Relevancia 5)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class40022] of  Pintor
 
@@ -464,7 +465,7 @@
 	(Largo 325)
 	(NombreCuadro "La Libertad guiando al pueblo")
 	(Relevancia 5)
-	(Sala 3))
+	(Sala 4))
 
 ([MUSEO_Class40024] of  Cuadro
 
@@ -478,7 +479,7 @@
 	(Largo 496)
 	(NombreCuadro "La muerte de Sardanapalo")
 	(Relevancia 2)
-	(Sala 2))
+	(Sala 4))
 
 ([MUSEO_Class50000] of  Cuadro
 
@@ -492,7 +493,7 @@
 	(Largo 110)
 	(NombreCuadro "Las espigadoras")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50001] of  Pintor
 
@@ -530,7 +531,7 @@
 	(Largo 130)
 	(NombreCuadro "Fuga")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class50005] of  Pintor
 
@@ -549,7 +550,7 @@
 	(Largo 61)
 	(NombreCuadro "Grupo de cuatro desnudos")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50007] of  Pintor
 
@@ -568,7 +569,7 @@
 	(Largo 598)
 	(NombreCuadro "El taller del pintor")
 	(Relevancia 4)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50009] of  Pintor
 
@@ -587,7 +588,7 @@
 	(Largo 181)
 	(NombreCuadro "Los grandes caballos azules")
 	(Relevancia 3)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class50011] of  Pintor
 
@@ -606,7 +607,7 @@
 	(Largo 45)
 	(NombreCuadro "Lydia apoyada en sus brazos")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50013] of  Pintor
 
@@ -625,7 +626,7 @@
 	(Largo 115)
 	(NombreCuadro "Hombre en un balcón")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50015] of  Pintor
 
@@ -644,7 +645,7 @@
 	(Largo 32)
 	(NombreCuadro "Mañana, Interior")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50017] of  Pintor
 
@@ -663,7 +664,7 @@
 	(Largo 55)
 	(NombreCuadro "Desnudo en una terraza")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50020] of  Cuadro
 
@@ -677,7 +678,7 @@
 	(Largo 60)
 	(NombreCuadro "Lampara de filosofo")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50021] of  Pintor
 
@@ -695,7 +696,8 @@
 	(cuad_tema [MUSEO_Class8])
 	(Largo 45)
 	(NombreCuadro "Retrato de Vincent van Gogh")
-	(Relevancia 3))
+	(Relevancia 3)
+	(Sala 3))
 
 ([MUSEO_Class50023] of  Pintor
 
@@ -714,7 +716,7 @@
 	(Largo 54)
 	(NombreCuadro "Pelirroja, El Baño")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50025] of  Cuadro
 
@@ -728,7 +730,7 @@
 	(Largo 34)
 	(NombreCuadro "Autoretrato")
 	(Relevancia 4)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50026] of  Pintor
 
@@ -747,7 +749,7 @@
 	(Largo 30)
 	(NombreCuadro "Mujer sentada con rodilla levantada")
 	(Relevancia 1)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50028] of  Pintor
 
@@ -766,7 +768,7 @@
 	(Largo 226)
 	(NombreCuadro "El destino de los animales")
 	(Relevancia 3)
-	(Sala 1))
+	(Sala 4))
 
 ([MUSEO_Class50030] of  Cuadro
 
@@ -799,7 +801,7 @@
 	(Largo 234)
 	(NombreCuadro "Las Senoritas de Avignon")
 	(Relevancia 5)
-	(Sala 1))
+	(Sala 3))
 
 ([MUSEO_Class50033] of  Pintor
 
@@ -818,7 +820,7 @@
 	(Largo 73)
 	(NombreCuadro "Los amantes")
 	(Relevancia 2)
-	(Sala 1))
+	(Sala 2))
 
 ([MUSEO_Class50035] of  Cuadro
 

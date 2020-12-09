@@ -1,4 +1,4 @@
-; Tue Dec 08 16:19:39 CET 2020
+; Wed Dec 09 10:42:30 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -133,6 +133,9 @@
 	(multislot est_cuad
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
+		(create-accessor read-write))
+	(multislot Justificaciones
+		(type STRING)
 		(create-accessor read-write))
 	(multislot pint_cuad
 		(type INSTANCE)
@@ -273,6 +276,9 @@
 ;+		(comment "Minutos de tiempo de la vista")
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Justificaciones
+		(type STRING)
 		(create-accessor read-write)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

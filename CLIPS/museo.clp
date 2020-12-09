@@ -1659,6 +1659,10 @@
 		(if (>= ?tiempoOcupadoDia ?tiempoTotaleDia) then 
 			(bind ?tiempoOcupadoDia 0)
 			(bind ?dia (+ ?dia 1))
+			(printout t "" crlf)
+			(printout t "" crlf)
+			(printout t "" crlf)
+			(printout t "" crlf)
 			(printout t "                                         ' DIA " ?dia " '     " crlf)
 			(printout t "==========================================================================================" crlf)
 		)

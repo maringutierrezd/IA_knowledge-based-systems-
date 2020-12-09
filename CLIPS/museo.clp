@@ -1230,12 +1230,132 @@
 )
 
 (defrule recopilacion-datos::conocimiento-grupo
+	(declare (salience -4))
 	?g <- (visita (conocimiento ?conoc))
 	(test (< ?conoc 0))
 	=>
-	(printout t "Clasifique su conocimiento de Arte del 1 al 10" crlf)	; esto es provisional
+	(printout t "Clasifique su conocimiento de Arte del 1 al 10" crlf)	
 	(bind ?x (read))
+	(bind ?x (/ ?x 2)) 
 	(modify ?g (conocimiento ?x))
+)
+
+(defrule recopilacion-datos::conocimiento-pregunta1
+	(declare (salience -5))
+	?g <- (visita (conocimiento ?conoc))
+	(not (pregunta1))
+	=>
+	(printout t "Evaluacion del conocimiento " crlf)
+	(printout t "============================" crlf)
+	(printout t "Quien pinto la Mona Lisa? " crlf)
+	(printout t "1.- Diego Velazquez" crlf)
+	(printout t "2.- El Greco" crlf)
+	(printout t "3.- Pablo Picasso" crlf)
+	(printout t "4.- Leonardo da Vinci" crlf)
+	(bind  ?res (read))
+	(if (= ?res 4) 
+		then 
+		(if (< ?conoc 10) then 
+			(bind ?conoc (+ ?conoc 1)))
+	)
+	(if (not (= ?res 4)) 
+		then
+		(if (> ?conoc 0) then 
+			(bind ?conoc (- ?conoc 1)))
+	)
+
+	(assert (pregunta1))
+	(modify ?g (conocimiento ?conoc))
+)
+(defrule recopilacion-datos::conocimiento-pregunta2
+	(declare (salience -5))
+	?g <- (visita (conocimiento ?conoc))
+	(not (pregunta2))
+	=>
+	(printout t "Quien pinto Las meninas" crlf)
+	(printout t "1.- Diego Velazquez" crlf)
+	(printout t "2.- El Greco" crlf)
+	(printout t "3.- Pablo Picasso" crlf)
+	(printout t "4.- Leonardo da Vinci" crlf)
+	(bind  ?res (read))
+	(if (= ?res 1) 
+		then 
+		(if (< ?conoc 10) then 
+			(bind ?conoc (+ ?conoc 1)))
+	)
+	(if (not (= ?res 1)) 
+		then
+		(if (> ?conoc 0) then 
+			(bind ?conoc (- ?conoc 1)))
+	)
+	(assert (pregunta2))
+	(modify ?g (conocimiento ?conoc))
+)
+(defrule recopilacion-datos::conocimiento-pregunta3
+	(declare (salience -5))
+	?g <- (visita (conocimiento ?conoc))
+	(not (pregunta3))
+	=>
+	(printout t "Quien pinto La Libertad guiando al pueblo" crlf)
+	(printout t "1.- Rembrandt" crlf)
+	(printout t "2.- El Greco" crlf)
+	(printout t "3.- Eugène Delacroix" crlf)
+	(printout t "4.- Jan van Eyck" crlf)
+	(bind  ?res (read))
+	(if (= ?res 3) 
+		then 
+		(if (< ?conoc 10) then 
+			(bind ?conoc (+ ?conoc 1)))
+		else  
+		(if (> ?conoc 0) then 
+			(bind ?conoc (- ?conoc 1)))
+	)
+	(assert (pregunta3))
+	(modify ?g (conocimiento ?conoc))
+)
+(defrule recopilacion-datos::conocimiento-pregunta4
+	(declare (salience -5))
+	?g <- (visita (conocimiento ?conoc))
+	(not (pregunta4))
+	=>
+	(printout t "Quien pinto el Guernica" crlf)
+	(printout t "1.- Diego Velazquez" crlf)
+	(printout t "2.- El Greco" crlf)
+	(printout t "3.- Pablo Picasso" crlf)
+	(printout t "4.- Leonardo da Vinci" crlf)
+	(bind  ?res (read))
+	(if (= ?res 3) 
+		then 
+		(if (< ?conoc 10) then 
+			(bind ?conoc (+ ?conoc 1)))
+		else  
+		(if (> ?conoc 0) then 
+			(bind ?conoc (- ?conoc 1)))
+	)
+	(assert (pregunta4))
+	(modify ?g (conocimiento ?conoc))
+)
+(defrule recopilacion-datos::conocimiento-pregunta5
+	(declare (salience -5))
+	?g <- (visita (conocimiento ?conoc))
+	(not (pregunta5))
+	=>
+	(printout t "Quien pinto Noche estrellada sobre el Ródano" crlf)
+	(printout t "1.- Diego Velazquez" crlf)
+	(printout t "2.- El Greco" crlf)
+	(printout t "3.- Pablo Picasso" crlf)
+	(printout t "4.- Vincent van Gogh" crlf)
+	(bind  ?res (read))
+	(if (= ?res 4) 
+		then 
+		(if (< ?conoc 10) then 
+			(bind ?conoc (+ ?conoc 1)))
+		else  
+		(if (> ?conoc 0) then 
+			(bind ?conoc (- ?conoc 1)))
+	)
+	(assert (pregunta5))
+	(modify ?g (conocimiento ?conoc))
 )
 
 (defrule recopilacion-datos::hay-ninos 
@@ -1289,6 +1409,7 @@
 )
 
 (defrule recopilacion-datos::getPintoresPref 
+	(declare (salience -9))
 	?e <- (visita)
 	?done <- (faltaPreguntarPintores)
 	=>
@@ -1323,6 +1444,7 @@
 )
 
 (defrule recopilacion-datos::getTematicasPref 
+	(declare (salience -9))
 	?e <- (visita)
 	?done <- (faltaPreguntarTematicas)
 	=>
@@ -1357,6 +1479,7 @@
 )
 
 (defrule recopilacion-datos::getEpocasPref 
+	(declare (salience -9))
 	?e <- (visita)
 	?done <- (faltaPreguntarEpocas)
 	=>
@@ -1391,6 +1514,7 @@
 )
 
 (defrule recopilacion-datos::getEstilosPref 
+	(declare (salience -9))
 	?e <- (visita)
 	?done <- (faltaPreguntarEstilos)
 	=>

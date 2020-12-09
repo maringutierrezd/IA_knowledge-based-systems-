@@ -1480,14 +1480,17 @@
 (defrule procesar-datos::puntosPintor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"
 	(declare (salience 4))
 	(visita (pintoresPref $?PintoresFav))
-	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos) (Justificaciones $?justif))
 	?cuadroB <- (object (is-a Cuadro)(cuad_pint ?pintor))
 	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
 	(test (member ?pintor ?PintoresFav))
 	(not (valoradoPintor ?cuadro))
 	=>
 	(bind ?puntos (+ ?puntos 50))
+	(bind ?razon "+50 puntos por ser de uno de sus autores favoritos")
+	(bind $?justif (insert$ $?justif (+ (length$ $?justif) 1) ?razon))
 	(send ?valoracion put-puntos ?puntos)
+	(send ?valoracion put-Justificaciones $?justif)
 	(assert (valoradoPintor ?cuadro))
 )
 
@@ -1496,42 +1499,51 @@
 (defrule procesar-datos::puntosEstilo "Anadimos puntos a la valoracion si el estilo esta en estilos favoritos"
 	(declare (salience 3))
 	(visita (estilosPref $?EstilosFav))
-	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos) (Justificaciones $?justif))
 	?cuadroB <- (object (is-a Cuadro)(cuad_est ?estilo))
 	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
 	(test (member ?estilo ?EstilosFav))
 	(not (valoradoEstilo ?cuadro))
 	=>
 	(bind ?puntos (+ ?puntos 50))
+	(bind ?razon "+50 puntos por ser de una de sus estilos favoritos")
+	(bind $?justif (insert$ $?justif (+ (length$ $?justif) 1) ?razon))
 	(send ?valoracion put-puntos ?puntos)
+	(send ?valoracion put-Justificaciones $?justif)
 	(assert (valoradoEstilo ?cuadro))
 )
 
 (defrule procesar-datos::puntosTema "Anadimos puntos a la valoracion si la tematica esta en tematicas favoritas"
 	(declare (salience 2))
 	(visita (tematicasPref $?TematicasFav))
-	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos) (Justificaciones $?justif))
 	?cuadroB <- (object (is-a Cuadro)(cuad_tema ?tema))
 	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
 	(test (member ?tema ?TematicasFav))
 	(not (valoradoTematica ?cuadro))
 	=>
 	(bind ?puntos (+ ?puntos 50))
+	(bind ?razon "+50 puntos por ser de uno de sus temas favoritos")
+	(bind $?justif (insert$ $?justif (+ (length$ $?justif) 1) ?razon))
 	(send ?valoracion put-puntos ?puntos)
+	(send ?valoracion put-Justificaciones $?justif)
 	(assert (valoradoTematica ?cuadro))
 )
 
-(defrule procesar-datos::puntosEpoca "Anadimos puntos a la valoracion si la temaepocatica esta en epocas favoritas"
+(defrule procesar-datos::puntosEpoca "Anadimos puntos a la valoracion si la epoca esta en epocas favoritas"
 	(declare (salience 1))
 	(visita (epocasPref $?EpocasFav))
-	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos) (Justificaciones $?justif))
 	?cuadroB <- (object (is-a Cuadro)(cuad_ep ?epoca))
 	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
 	(test (member ?epoca ?EpocasFav))
 	(not (valoradoEpoca ?cuadro))
 	=>
 	(bind ?puntos (+ ?puntos 50))
+	(bind ?razon "+50 puntos por ser de una de sus epocas favoritos")
+	(bind $?justif (insert$ $?justif (+ (length$ $?justif) 1) ?razon))
 	(send ?valoracion put-puntos ?puntos)
+	(send ?valoracion put-Justificaciones $?justif)
 	(assert (valoradoEpoca ?cuadro))
 	
 )
@@ -1660,6 +1672,10 @@
 	(printout t "Te recomendamos el siguiente cuadro con una puntuacion de: " ?self:puntos " puntos " crlf)
 	(printout t "Tiempo estimado para ver la obra: " ?self:tiempoEstimado " minutos " crlf)
 	(printout t (send ?self:cuadro imprimir))
+	(printout t "Justificacion de la eleccion: " crlf)
+	(progn$ (?i ?self:Justificaciones)
+		(printout t ?i crlf)
+	)
 	(printout t "==========================================================================================" crlf)
 )
 

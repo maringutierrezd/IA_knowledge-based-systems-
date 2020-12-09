@@ -118,7 +118,7 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(single-slot Tama%C3%B1o
+	(single-slot Tamano
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -141,7 +141,7 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Ano
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -185,7 +185,7 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot A%C3%B1o
+	(single-slot Ano
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -320,7 +320,7 @@
 ([MUSEO_Class0] of  Cuadro
 
 	(Alto 91)
-	(A%C3%B1o 1983)
+	(Ano 1983)
 	(Complejidad 5476)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
@@ -490,7 +490,7 @@
 ([MUSEO_Class10042] of  Cuadro
 
 	(Alto 77)
-	(A%C3%B1o 1503)
+	(Ano 1503)
 	(Complejidad 2809)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10011])
@@ -514,7 +514,7 @@
 ([MUSEO_Class20000] of  Cuadro
 
 	(Alto 500)
-	(A%C3%B1o 1510)
+	(Ano 1510)
 	(Complejidad 250000)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10011])
@@ -533,7 +533,7 @@
 ([MUSEO_Class30000] of  Cuadro
 
 	(Alto 80)
-	(A%C3%B1o 1434)
+	(Ano 1434)
 	(Complejidad 3600)
 	(cuad_ep [MUSEO_Class10001])
 	(cuad_est [MUSEO_Class10010])
@@ -556,7 +556,7 @@
 ([MUSEO_Class40000] of  Cuadro
 
 	(Alto 121)
-	(A%C3%B1o 1604)
+	(Ano 1604)
 	(Complejidad 11881)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10012])
@@ -575,7 +575,7 @@
 ([MUSEO_Class40002] of  Cuadro
 
 	(Alto 480)
-	(A%C3%B1o 1587)
+	(Ano 1587)
 	(Complejidad 129600)
 	(cuad_ep [MUSEO_Class10002])
 	(cuad_est [MUSEO_Class10012])
@@ -589,7 +589,7 @@
 ([MUSEO_Class40003] of  Cuadro
 
 	(Alto 47)
-	(A%C3%B1o 1665)
+	(Ano 1665)
 	(Complejidad 1600)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10015])
@@ -608,7 +608,7 @@
 ([MUSEO_Class40005] of  Cuadro
 
 	(Alto 66)
-	(A%C3%B1o 1435)
+	(Ano 1435)
 	(Complejidad 38442)
 	(cuad_ep [MUSEO_Class10001])
 	(cuad_est [MUSEO_Class10010])
@@ -622,7 +622,7 @@
 ([MUSEO_Class40006] of  Cuadro
 
 	(Alto 45)
-	(A%C3%B1o 1658)
+	(Ano 1658)
 	(Complejidad 1681)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10015])
@@ -636,7 +636,7 @@
 ([MUSEO_Class40008] of  Cuadro
 
 	(Alto 318)
-	(A%C3%B1o 1656)
+	(Ano 1656)
 	(Complejidad 76176)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
@@ -655,7 +655,7 @@
 ([MUSEO_Class40010] of  Cuadro
 
 	(Alto 307)
-	(A%C3%B1o 1634)
+	(Ano 1634)
 	(Complejidad 94249)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10013])
@@ -687,7 +687,7 @@
 ([MUSEO_Class40013] of  Cuadro
 
 	(Alto 291)
-	(A%C3%B1o 1603)
+	(Ano 1603)
 	(Complejidad 43264)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10016])
@@ -701,7 +701,7 @@
 ([MUSEO_Class40015] of  Cuadro
 
 	(Alto 57)
-	(A%C3%B1o 1742)
+	(Ano 1742)
 	(Complejidad 3249)
 	(cuad_ep [MUSEO_Class10004])
 	(cuad_est [MUSEO_Class10017])
@@ -720,7 +720,7 @@
 ([MUSEO_Class40017] of  Cuadro
 
 	(Alto 130)
-	(A%C3%B1o 1740)
+	(Ano 1740)
 	(Complejidad 16900)
 	(cuad_ep [MUSEO_Class10004])
 	(cuad_est [MUSEO_Class10017])
@@ -752,7 +752,7 @@
 ([MUSEO_Class40021] of  Cuadro
 
 	(Alto 330)
-	(A%C3%B1o 1784)
+	(Ano 1784)
 	(Complejidad 108900)
 	(cuad_ep [MUSEO_Class10005])
 	(cuad_est [MUSEO_Class10018])
@@ -784,7 +784,7 @@
 ([MUSEO_Class40024] of  Cuadro
 
 	(Alto 392)
-	(A%C3%B1o 1827)
+	(Ano 1827)
 	(Complejidad 153664)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10009])
@@ -798,7 +798,7 @@
 ([MUSEO_Class50000] of  Cuadro
 
 	(Alto 84)
-	(A%C3%B1o 1857)
+	(Ano 1857)
 	(Complejidad 7056)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10020])
@@ -817,7 +817,7 @@
 ([MUSEO_Class50002] of  Cuadro
 
 	(Alto 102)
-	(A%C3%B1o 1882)
+	(Ano 1882)
 	(Complejidad 5776)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10022])
@@ -836,7 +836,7 @@
 ([MUSEO_Class50004] of  Cuadro
 
 	(Alto 130)
-	(A%C3%B1o 1914)
+	(Ano 1914)
 	(Complejidad 16900)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class6])
@@ -855,7 +855,7 @@
 ([MUSEO_Class50006] of  Cuadro
 
 	(Alto 91)
-	(A%C3%B1o 1925)
+	(Ano 1925)
 	(Complejidad 3721)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10029])
@@ -874,7 +874,7 @@
 ([MUSEO_Class50008] of  Cuadro
 
 	(Alto 359)
-	(A%C3%B1o 1855)
+	(Ano 1855)
 	(Complejidad 128881)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10020])
@@ -893,7 +893,7 @@
 ([MUSEO_Class50010] of  Cuadro
 
 	(Alto 106)
-	(A%C3%B1o 1911)
+	(Ano 1911)
 	(Complejidad 11236)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class6])
@@ -912,7 +912,7 @@
 ([MUSEO_Class50012] of  Cuadro
 
 	(Alto 55)
-	(A%C3%B1o 1879)
+	(Ano 1879)
 	(Complejidad 2025)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10021])
@@ -931,7 +931,7 @@
 ([MUSEO_Class50014] of  Cuadro
 
 	(Alto 196)
-	(A%C3%B1o 1912)
+	(Ano 1912)
 	(Complejidad 13225)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10025])
@@ -950,7 +950,7 @@
 ([MUSEO_Class50016] of  Cuadro
 
 	(Alto 65)
-	(A%C3%B1o 1890)
+	(Ano 1890)
 	(Complejidad 1024)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10026])
@@ -969,7 +969,7 @@
 ([MUSEO_Class50018] of  Cuadro
 
 	(Alto 38)
-	(A%C3%B1o 1925)
+	(Ano 1925)
 	(Complejidad 1444)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10029])
@@ -983,7 +983,7 @@
 ([MUSEO_Class50020] of  Cuadro
 
 	(Alto 50)
-	(A%C3%B1o 1936)
+	(Ano 1936)
 	(Complejidad 2500)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10028])
@@ -1002,7 +1002,7 @@
 ([MUSEO_Class50022] of  Cuadro
 
 	(Alto 54)
-	(A%C3%B1o 1887)
+	(Ano 1887)
 	(Complejidad 2025)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10023])
@@ -1021,7 +1021,7 @@
 ([MUSEO_Class50024] of  Cuadro
 
 	(Alto 67)
-	(A%C3%B1o 1889)
+	(Ano 1889)
 	(Complejidad 2916)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10023])
@@ -1035,7 +1035,7 @@
 ([MUSEO_Class50025] of  Cuadro
 
 	(Alto 42)
-	(A%C3%B1o 1887)
+	(Ano 1887)
 	(Complejidad 1156)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10026])
@@ -1054,7 +1054,7 @@
 ([MUSEO_Class50027] of  Cuadro
 
 	(Alto 46)
-	(A%C3%B1o 1917)
+	(Ano 1917)
 	(Complejidad 900)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10024])
@@ -1073,7 +1073,7 @@
 ([MUSEO_Class50029] of  Cuadro
 
 	(Alto 196)
-	(A%C3%B1o 1913)
+	(Ano 1913)
 	(Complejidad 38416)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10024])
@@ -1087,7 +1087,7 @@
 ([MUSEO_Class50030] of  Cuadro
 
 	(Alto 91)
-	(A%C3%B1o 1838)
+	(Ano 1838)
 	(Complejidad 8281)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10021])
@@ -1106,7 +1106,7 @@
 ([MUSEO_Class50032] of  Cuadro
 
 	(Alto 244)
-	(A%C3%B1o 1907)
+	(Ano 1907)
 	(Complejidad 54756)
 	(cuad_ep [MUSEO_Class4])
 	(cuad_est [MUSEO_Class10025])
@@ -1125,7 +1125,7 @@
 ([MUSEO_Class50034] of  Cuadro
 
 	(Alto 54)
-	(A%C3%B1o 1928)
+	(Ano 1928)
 	(Complejidad 2916)
 	(cuad_ep [MUSEO_Class10008])
 	(cuad_est [MUSEO_Class10028])
@@ -1139,7 +1139,7 @@
 ([MUSEO_Class50035] of  Cuadro
 
 	(Alto 51)
-	(A%C3%B1o 1882)
+	(Ano 1882)
 	(Complejidad 1225)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10022])
@@ -1833,7 +1833,7 @@
 	(format t "Titulo: %s %n" ?self:NombreCuadro)
 	(printout t crlf)
 
-	(format t "Ano: %d %n" ?self:A%C3%B1o)
+	(format t "Ano: %d %n" ?self:Ano)
 	(printout t crlf)
 
 	(bind ?p (send ?self:cuad_pint get-NombrePintor))

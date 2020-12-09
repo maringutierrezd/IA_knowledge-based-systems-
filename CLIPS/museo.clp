@@ -1561,12 +1561,12 @@
 (defrule seleccion::ordenarLista
 	(declare (salience -5))
 	(not (ordenacionListaHecha))
-	(visita(tiempoTotal ?tiempoTotal))
+	(visita(tiempoTotal ?tiempoTotal) (dias ?dias))
 	?l <- (listaVal(valoraciones $?listaDesordenada))
 	=>
 	(bind $?listaOrdenada (create$))
 	(bind ?tiempoHastaAhora 0)
-	(bind ?tiempoTotal (+ ?tiempoTotal 30)) ;LE SUMO 30 MINUTOS AL TIEMPO TOTAL DE LA VISITA POR SI ACABAN ANTES CON LAS RECOMENDACIONES
+	(bind ?tiempoTotal (+ ?tiempoTotal (* ?dias 30))) ;LE SUMO 30 MINUTOS AL TIEMPO DE CADA DIA DE LA VISITA POR SI ACABAN ANTES CON LAS RECOMENDACIONES
 	(while (and (not (eq (length$ $?listaDesordenada) 0)) (< ?tiempoHastaAhora ?tiempoTotal)) do 
 		;CALCULAMOS EL MAXIMO 
 		(bind ?max -1)
@@ -1633,11 +1633,25 @@
 
 (defrule imprimir-resultado::imprimirListaValoraciones
 	?l <- (listaVal (valoraciones $?valoraciones))
+	(visita (dias ?dias) (horas ?horas))
 	=>
 	(printout t "Las recomendaciones que tenemos para tu visita son las siguientes: " crlf)
 	(printout t " " crlf)
 	(printout t "==========================================================================================" crlf)
+	(bind ?dia 1)
+	(bind ?tiempoOcupadoDia 0)
+	(bind ?tiempoTotaleDia  (+ (* ?horas 60) 30))
+	(printout t "                                         ' DIA 1 '     " crlf)
+	(printout t "==========================================================================================" crlf)
 	(progn$ (?val $?valoraciones)
+		(if (>= ?tiempoOcupadoDia ?tiempoTotaleDia) then 
+			(bind ?tiempoOcupadoDia 0)
+			(bind ?dia (+ ?dia 1))
+			(printout t "                                         ' DIA " ?dia " '     " crlf)
+			(printout t "==========================================================================================" crlf)
+		)
+
+		(bind ?tiempoOcupadoDia (+ ?tiempoOcupadoDia (send ?val get-tiempoEstimado)))
 		(printout t (send ?val imprimir))
 	)
 )

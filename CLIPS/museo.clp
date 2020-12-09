@@ -1654,6 +1654,29 @@
 	(assert (valoradoTematica ?cuadro))
 )
 
+(defrule procesar-datos::puntosComplejidad "Anadimos puntos a la valoracion si la complejidad es acorde con el nivel de los visitantes"
+	(declare (salience 5))
+	(visita (conocimiento ?con))
+	?valoracion <- (object (is-a Valoracion) (cuadro ?cuadro) (puntos ?puntos) (Justificaciones $?justif))
+	?cuadroB <- (object (is-a Cuadro)(Complejidad ?comp))
+	(test (eq (instance-name ?cuadro)(instance-name ?cuadroB)))
+	(not (valoradoComplejidad ?cuadro))
+	=>
+	(bind ?ent -1)
+	(if (and (and(<= ?con 2)(>= ?con 0)) (and(< ?comp 50720)(>= ?comp 900) )) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if (and (and(<= ?con 4)(>= ?con 3)) (and(< ?comp 100540)(>= ?comp 50720) )) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if (and (and(<= ?con 6)(>= ?con 5)) (and(< ?comp 150360)(>= ?comp 100540)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if (and (and(<= ?con 8)(>= ?con 7)) (and(< ?comp 200180)(>= ?comp 150360)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if (and (and(<= ?con 10)(>= ?con 9)) (and(<= ?comp 250000)(>= ?comp 200180)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if(= ?ent 1) then
+		(bind ?razon "+20 puntos por tener una complejidad acorde al nivel/conocimiento de los visitantes")
+		(bind $?justif (insert$ $?justif (+ (length$ $?justif) 1) ?razon))
+		(send ?valoracion put-puntos ?puntos)
+		(send ?valoracion put-Justificaciones $?justif)
+	)
+	(assert (valoradoComplejidad ?cuadro))	
+)
+
 (defrule procesar-datos::puntosEpoca "Anadimos puntos a la valoracion si la epoca esta en epocas favoritas"
 	(declare (salience 1))
 	(visita (epocasPref $?EpocasFav))

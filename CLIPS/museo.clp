@@ -1597,8 +1597,6 @@
 					
 		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0)(tiempoEstimado ?tiempoE))
 	)
-
-
 )
 
 (defrule procesar-datos::puntosPintor "Anadimos puntos a la valoracion si el pintor esta en pintores favoritos"

@@ -1451,10 +1451,20 @@
 			;COMPLEJIDAD 3 >166966
 			(if (>= ?complejCuadro 166966) then (bind ?tiempoE 16)) 
 		)
+		;SI EL CUADRO 
+		(bind ?Relevancia (send ?i get-Relevancia))
+		(if (and (> ?Relevancia 2) (< ?Relevancia 5)) then 
+			(bind ?tiempoE (+ ?tiempoE 2))
+		)
+		(if (= ?Relevancia 5) then 
+			(bind ?tiempoE (+ ?tiempoE 4))
+		)
 		;SI HAY NIÑOS MULTIPLICAMOS EL RESULTADO POR 0.85
 		(if (= ?nin 1) then
 			(bind ?tiempoE (* ?tiempoE 0.85)) ;DEJARA METER FLOAT A INTEGER
-		)			
+		)
+		
+					
 		(make-instance (gensym) of Valoracion (cuadro ?i)(puntos 0)(tiempoEstimado ?tiempoE))
 	)
 
@@ -1571,6 +1581,40 @@
 	)
 	;HACEMOS ASSERT PARA QUE NO SE VUELVA A EJECUTAR
 	(assert (ordenacionListaHecha))
+	;PONEMOS LA LISTA ORDENADA EN LISTA VAL
+	(modify ?l (valoraciones ?listaOrdenada))
+)
+
+
+
+(defrule seleccion::ordenarListaSalas
+	(declare (salience -6))
+	(not (ordenacionListaSalasHecha))
+	?l <- (listaVal(valoraciones $?listaDesordenada))
+	=>
+	(bind $?listaOrdenada (create$))
+	(while  (not (eq (length$ $?listaDesordenada) 0))  do 
+		;CALCULAMOS LA MINIMA SALA 
+		(bind ?min 10)
+		(progn$ (?i $?listaDesordenada)
+			;COGEMOS EL CUADRO
+			(bind ?cuadro (send ?i get-cuadro))
+			;Cogemos la sala del cuadro
+			(bind ?sala (send ?cuadro get-Sala))
+
+			(if (< ?sala ?min) then
+				(bind ?min ?sala)
+				(bind ?valoracion ?i)
+			)
+		)
+
+		;LO QUITAMOS DE LA LISTA DESORDENADA
+		(bind $?listaDesordenada (delete-member$ $?listaDesordenada ?valoracion))
+		;LO METEMOS EN LA LISTA ORDENADA
+		(bind $?listaOrdenada (insert$ $?listaOrdenada (+ (length$ $?listaOrdenada) 1) ?valoracion))
+	)
+	;HACEMOS ASSERT PARA QUE NO SE VUELVA A EJECUTAR
+	(assert (ordenacionListaSalasHecha))
 	;PONEMOS LA LISTA ORDENADA EN LISTA VAL
 	(modify ?l (valoraciones ?listaOrdenada))
 )

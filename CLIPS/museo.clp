@@ -1233,10 +1233,12 @@
 	(declare (salience -4))
 	?g <- (visita (conocimiento ?conoc))
 	(test (< ?conoc 0))
+	(not (autoev))
 	=>
 	(printout t "Clasifique su conocimiento de Arte del 1 al 10" crlf)	
 	(bind ?x (read))
-	(bind ?x (/ ?x 2)) 
+	(bind ?x (/ ?x 2))
+	(assert (autoev)) 
 	(modify ?g (conocimiento ?x))
 )
 
@@ -1245,7 +1247,7 @@
 	?g <- (visita (conocimiento ?conoc))
 	(not (pregunta1))
 	=>
-	(printout t "Evaluacion del conocimiento " crlf)
+	(printout t "Evaluacion del conocimiento:" crlf)
 	(printout t "============================" crlf)
 	(printout t "Quien pinto la Mona Lisa? " crlf)
 	(printout t "1.- Diego Velazquez" crlf)
@@ -1255,13 +1257,10 @@
 	(bind  ?res (read))
 	(if (= ?res 4) 
 		then 
-		(if (< ?conoc 10) then 
-			(bind ?conoc (+ ?conoc 1)))
-	)
-	(if (not (= ?res 4)) 
-		then
-		(if (> ?conoc 0) then 
-			(bind ?conoc (- ?conoc 1)))
+			(bind ?conoc (+ ?conoc 1))
+	
+	else
+			(bind ?conoc (- ?conoc 1))
 	)
 
 	(assert (pregunta1))
@@ -1272,7 +1271,7 @@
 	?g <- (visita (conocimiento ?conoc))
 	(not (pregunta2))
 	=>
-	(printout t "Quien pinto Las meninas" crlf)
+	(printout t "Quien pinto Las meninas?" crlf)
 	(printout t "1.- Diego Velazquez" crlf)
 	(printout t "2.- El Greco" crlf)
 	(printout t "3.- Pablo Picasso" crlf)
@@ -1280,13 +1279,10 @@
 	(bind  ?res (read))
 	(if (= ?res 1) 
 		then 
-		(if (< ?conoc 10) then 
-			(bind ?conoc (+ ?conoc 1)))
-	)
-	(if (not (= ?res 1)) 
-		then
-		(if (> ?conoc 0) then 
-			(bind ?conoc (- ?conoc 1)))
+			(bind ?conoc (+ ?conoc 1))
+	
+	else
+			(bind ?conoc (- ?conoc 1))
 	)
 	(assert (pregunta2))
 	(modify ?g (conocimiento ?conoc))
@@ -1296,19 +1292,18 @@
 	?g <- (visita (conocimiento ?conoc))
 	(not (pregunta3))
 	=>
-	(printout t "Quien pinto La Libertad guiando al pueblo" crlf)
+	(printout t "Quien pinto La Libertad guiando al pueblo?" crlf)
 	(printout t "1.- Rembrandt" crlf)
 	(printout t "2.- El Greco" crlf)
-	(printout t "3.- Eugène Delacroix" crlf)
+	(printout t "3.- Eugene Delacroix" crlf)
 	(printout t "4.- Jan van Eyck" crlf)
 	(bind  ?res (read))
 	(if (= ?res 3) 
 		then 
-		(if (< ?conoc 10) then 
-			(bind ?conoc (+ ?conoc 1)))
-		else  
-		(if (> ?conoc 0) then 
-			(bind ?conoc (- ?conoc 1)))
+			(bind ?conoc (+ ?conoc 1))
+	
+	else
+			(bind ?conoc (- ?conoc 1))
 	)
 	(assert (pregunta3))
 	(modify ?g (conocimiento ?conoc))
@@ -1318,7 +1313,7 @@
 	?g <- (visita (conocimiento ?conoc))
 	(not (pregunta4))
 	=>
-	(printout t "Quien pinto el Guernica" crlf)
+	(printout t "Quien pinto el Guernica?" crlf)
 	(printout t "1.- Diego Velazquez" crlf)
 	(printout t "2.- El Greco" crlf)
 	(printout t "3.- Pablo Picasso" crlf)
@@ -1326,11 +1321,10 @@
 	(bind  ?res (read))
 	(if (= ?res 3) 
 		then 
-		(if (< ?conoc 10) then 
-			(bind ?conoc (+ ?conoc 1)))
-		else  
-		(if (> ?conoc 0) then 
-			(bind ?conoc (- ?conoc 1)))
+			(bind ?conoc (+ ?conoc 1))
+	
+	else
+			(bind ?conoc (- ?conoc 1))
 	)
 	(assert (pregunta4))
 	(modify ?g (conocimiento ?conoc))
@@ -1340,7 +1334,7 @@
 	?g <- (visita (conocimiento ?conoc))
 	(not (pregunta5))
 	=>
-	(printout t "Quien pinto Noche estrellada sobre el Ródano" crlf)
+	(printout t "Quien pinto Noche estrellada sobre el Rodano" crlf)
 	(printout t "1.- Diego Velazquez" crlf)
 	(printout t "2.- El Greco" crlf)
 	(printout t "3.- Pablo Picasso" crlf)
@@ -1348,11 +1342,10 @@
 	(bind  ?res (read))
 	(if (= ?res 4) 
 		then 
-		(if (< ?conoc 10) then 
-			(bind ?conoc (+ ?conoc 1)))
-		else  
-		(if (> ?conoc 0) then 
-			(bind ?conoc (- ?conoc 1)))
+			(bind ?conoc (+ ?conoc 1))
+	
+	else
+			(bind ?conoc (- ?conoc 1))
 	)
 	(assert (pregunta5))
 	(modify ?g (conocimiento ?conoc))
@@ -1661,11 +1654,11 @@
 	(not (valoradoComplejidad ?cuadro))
 	=>
 	(bind ?ent -1)
-	(if (and (and(<= ?con 2)(>= ?con 0)) (and(< ?comp 50720)(>= ?comp 900) )) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if (and (<= ?con 2) (and(< ?comp 50720)(>= ?comp 900) )) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
 	(if (and (and(<= ?con 4)(>= ?con 3)) (and(< ?comp 100540)(>= ?comp 50720) )) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
 	(if (and (and(<= ?con 6)(>= ?con 5)) (and(< ?comp 150360)(>= ?comp 100540)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
 	(if (and (and(<= ?con 8)(>= ?con 7)) (and(< ?comp 200180)(>= ?comp 150360)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
-	(if (and (and(<= ?con 10)(>= ?con 9)) (and(<= ?comp 250000)(>= ?comp 200180)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
+	(if (and (>= ?con 9) (and(<= ?comp 250000)(>= ?comp 200180)) ) then (bind ?puntos (+ ?puntos 20)) (bind ?ent 1))
 	(if(= ?ent 1) then
 		(bind ?razon "+20 puntos por tener una complejidad acorde al nivel/conocimiento de los visitantes")
 		(bind $?justif (insert$ $?justif (+ (length$ $?justif) 1) ?razon))

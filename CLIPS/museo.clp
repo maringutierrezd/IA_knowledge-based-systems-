@@ -1,4 +1,4 @@
-; Wed Dec 09 10:42:30 CET 2020
+; Wed Dec 09 13:03:34 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -54,15 +54,15 @@
 ;+		(allowed-classes Estilo)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Conocimiento
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot cuad_pint
 ;+		(comment "Pintor asociado al cuadro")
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot Conocimiento
-		(type INTEGER)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cuadro
 		(type INSTANCE)
@@ -87,14 +87,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Alto
-;+		(comment "Los centímetros que tiene de alto un cuadro")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_tema
 		(type INSTANCE)
 ;+		(allowed-classes Tematica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Alto
+;+		(comment "Los centímetros que tiene de alto un cuadro")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot NombreEp
@@ -118,13 +118,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(single-slot Tamano
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot ep_pint
 		(type INSTANCE)
 ;+		(allowed-classes Pintor)
+		(create-accessor read-write))
+	(single-slot Tama%C3%B1o
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Num_dias
 		(type INTEGER)
@@ -134,12 +134,12 @@
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
 		(create-accessor read-write))
-	(multislot Justificaciones
-		(type STRING)
-		(create-accessor read-write))
 	(multislot pint_cuad
 		(type INSTANCE)
 ;+		(allowed-classes Cuadro)
+		(create-accessor read-write))
+	(multislot Justificaciones
+		(type STRING)
 		(create-accessor read-write))
 	(single-slot Ano
 		(type INTEGER)
@@ -170,6 +170,10 @@
 (defclass Cuadro "Esta clase representa un cuadro."
 	(is-a USER)
 	(role concrete)
+	(single-slot Ano
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot cuad_est
 		(type INSTANCE)
 ;+		(allowed-classes Estilo)
@@ -182,10 +186,6 @@
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Complejidad
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Ano
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -204,14 +204,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Alto
-;+		(comment "Los centímetros que tiene de alto un cuadro")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot cuad_tema
 		(type INSTANCE)
 ;+		(allowed-classes Tematica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Alto
+;+		(comment "Los centímetros que tiene de alto un cuadro")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Sala
@@ -302,17 +302,7 @@
 
 
 (definstances instances ;;;;;;;;;;;;;;;;;;;; AQUI PONEMOS EL .pins
-; Wed Nov 25 16:14:29 CET 2020
-; 
-;+ (version "3.5")
-;+ (build "Build 663")
-
-; Sun Dec 06 15:27:12 CET 2020
-; 
-;+ (version "3.5")
-;+ (build "Build 663")
-
-; Tue Dec 08 16:19:39 CET 2020
+; Wed Dec 09 13:03:34 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -1615,7 +1605,7 @@
 	(send ?valoracion put-Justificaciones $?justif)
 	(assert (valoradoPintor ?cuadro))
 )
-
+	
 
 
 (defrule procesar-datos::puntosEstilo "Anadimos puntos a la valoracion si el estilo esta en estilos favoritos"

@@ -1,4 +1,4 @@
-; Wed Dec 09 13:03:34 CET 2020
+; Thu Dec 10 10:28:52 CET 2020
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -360,13 +360,14 @@
 ([MUSEO_Class40012] of  Cuadro
 
 	(Alto 462)
+	(Ano 1610)
 	(Complejidad 116281)
 	(cuad_ep [MUSEO_Class10003])
 	(cuad_est [MUSEO_Class10016])
 	(cuad_pint [MUSEO_Class40011])
 	(cuad_tema [MUSEO_Class10031])
 	(Largo 341)
-	(NombreCuadro "La elevación de la cruz")
+	(NombreCuadro "La elevacion de la cruz")
 	(Relevancia 3)
 	(Sala 4))
 
@@ -394,7 +395,7 @@
 	(cuad_pint [MUSEO_Class40016])
 	(cuad_tema [MUSEO_Class10030])
 	(Largo 73)
-	(NombreCuadro "Diana después del baño")
+	(NombreCuadro "Diana despues del bano")
 	(Relevancia 2)
 	(Sala 4))
 
@@ -420,6 +421,7 @@
 ([MUSEO_Class40018] of  Cuadro
 
 	(Alto 385)
+	(Ano 1962)
 	(Complejidad 148225)
 	(cuad_ep [MUSEO_Class10005])
 	(cuad_est [MUSEO_Class10018])
@@ -457,6 +459,7 @@
 ([MUSEO_Class40023] of  Cuadro
 
 	(Alto 260)
+	(Ano 1830)
 	(Complejidad 67600)
 	(cuad_ep [MUSEO_Class10006])
 	(cuad_est [MUSEO_Class10009])
@@ -624,7 +627,7 @@
 	(cuad_pint [MUSEO_Class50015])
 	(cuad_tema [MUSEO_Class8])
 	(Largo 115)
-	(NombreCuadro "Hombre en un balcón")
+	(NombreCuadro "Hombre en un balcon")
 	(Relevancia 1)
 	(Sala 3))
 
@@ -643,7 +646,7 @@
 	(cuad_pint [MUSEO_Class50017])
 	(cuad_tema [MUSEO_Class10038])
 	(Largo 32)
-	(NombreCuadro "Mañana, Interior")
+	(NombreCuadro "Manana, Interior")
 	(Relevancia 2)
 	(Sala 2))
 
@@ -714,7 +717,7 @@
 	(cuad_pint [MUSEO_Class50023])
 	(cuad_tema [MUSEO_Class10040])
 	(Largo 54)
-	(NombreCuadro "Pelirroja, El Baño")
+	(NombreCuadro "Pelirroja, El Bano")
 	(Relevancia 1)
 	(Sala 3))
 
